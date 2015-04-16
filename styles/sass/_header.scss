@@ -1,0 +1,58 @@
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.header {
+
+}
+  .header__navigation {
+    margin-bottom: .75em;
+    a {      
+      @include font-size(14px);
+      position: relative;
+      display: block;
+      color: $base-ui-color;      
+      padding: .75em 0em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: .125em;
+        bottom: .5em;
+        left: 0;
+        background: $base-ui-color;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.2s ease-in-out 0s;
+      }
+      &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);        
+      }
+    }
+    ul {
+      float: right;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin-left: 1em;
+        &.current-menu-item > a:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          left: 0;
+          background: white;
+          visibility: visible;   
+          transform: ScaleX(1);
+        }    
+        &.current-menu-item > a:hover:before {
+          opacity: 0.5;
+        }           
+      }
+    }      
+  }

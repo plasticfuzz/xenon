@@ -1,0 +1,121 @@
+/*------------------------------------*\
+    $OBJECTS
+\*------------------------------------*/
+
+.banner {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 12em;
+  margin-bottom: 1.5em;
+}
+  .banner__title {
+    @include font-size(22px);
+    position: absolute;
+    text-transform: uppercase;    
+    color: #fff;
+    top: 1.5em;
+    left: .5em;
+    font-weight: 700;
+  }
+
+
+  @media screen and (min-width: $bp-md) {
+    .banner__title {
+      padding-bottom: .5em;
+      border-bottom: 1px solid #fff;
+    }  
+  }  
+
+.callout {
+  margin-top: 10px;
+  padding: 1.25em;
+  background-color: $base-color;
+  color: #fff;
+}
+  .callout__title {
+      @include font-size(18px);
+      text-transform: uppercase;
+      margin: 10px 0 .25em 0;
+  }
+  .callout__paragraph {
+    @include font-size(12px);    
+    margin: 0;
+  }  
+
+  .callout__form {
+
+  }
+
+.multibox {
+
+}
+  .multibox__single {
+    background-color: $base-color;
+    color: #fff;
+    &:hover {
+      background-color: lighten($base-color, 5%);
+    }    
+    div {
+      height: auto;
+      height: 8em;
+      max-height: 10em;
+    }
+  }
+
+  @media screen and (min-width: $bp-md) {
+    .multibox__single {
+      div {
+        height: 8.5em;
+      }
+    }  
+  }
+
+  .multibox__single--orange {
+    background-color: $custom-yellow;
+    &:hover {
+      background-color: lighten($custom-yellow, 5%);
+    }    
+  } 
+
+  .multibox__single--red {
+    background-color: $custom-red;
+    &:hover {
+      background-color: lighten($custom-red, 5%);
+    }    
+  }    
+
+  .multibox__single--green {
+    background-color: $custom-green;
+    &:hover {
+      background-color: lighten($custom-green, 5%);
+    }
+  }    
+
+  .multibox__single__image {
+    background-size: cover;
+    background-position: center center;
+  }  
+
+  .multibox__single__content {
+    color: white;
+    text-decoration: none;
+    padding: 2.5em .5em 1em;
+  } 
+
+  @media screen and (min-width: $bp-md) {
+      .multibox__single__content {
+        padding: 4em .75em 1em;
+      }     
+  }  
+
+    .multibox__single__content__title {
+      @include font-size(18px);
+      text-transform: uppercase;
+      margin: 0 0 .25em 0;
+    }
+
+    .multibox__single__content__paragraph {
+      @include font-size(12px);    
+      margin: 0;
+    }
+

@@ -1,0 +1,57 @@
+/**
+ * CONTENTS
+ * BREAKPOINTS
+ * BASE STYLES
+ * IMPORTS / LIBS
+ */
+
+/*------------------------------------*\
+    $BREAKPOINTS
+\*------------------------------------*/
+$bp-sm: 35.5em;
+    $bp-lt-sm: $bp-sm - 1;
+$bp-md: 48em;
+    $bp-lt-md: $bp-md - 1;
+$bp-lg: 64em;
+    $bp-lt-lg: $bp-lg - 1;
+$bp-xl: 80em;
+    $bp-lt-lg: $bp-lg - 1;
+
+
+$base-color: #1F84B2;
+$custom-red: #CD3333;
+$custom-yellow: #FE9402;
+$custom-green:  #669934;
+
+
+/*------------------------------------*\
+    $BASE STYLES
+\*------------------------------------*/
+$base-website-width: 1140px;
+$base-round:         3px;
+$base-ui-color:      #1F84B2;
+$base-font-size:     16px;
+$base-line-height:   25px;
+$base-font-color:    #333;
+$base-font-family:   FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+$base-spacing-unit:  20px;
+$half-spacing-unit:  $base-spacing-unit / 2 !default;
+$line-height-ratio:  $base-line-height / $base-font-size;
+$line-height:        false;
+
+/*------------------------------------*\
+    $IMPORTS / LIBS
+\*------------------------------------*/
+
+@import "lib/normalize-3.0.2.scss";
+@import "lib/pure-grids-0.6.0--forked";
+
+@import "mixins";
+@import "html";
+@import "layout";
+@import "type";
+@import "objects";
+@import "forms";
+@import "header";
+
+

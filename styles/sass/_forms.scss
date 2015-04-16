@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    $FORMS
+\*------------------------------------*/
+
+form {
+  input {
+    border: 0;
+    outline: 0;
+    background-color: white;
+    &:focus {
+      background: darken(#fff, 3%)
+    }
+  }
+
+  input[type='text'] {
+    margin-top: 10px;
+    text-indent: 10px;
+    height: 38px;
+    color: $base-font-color;
+  }
+}
+
+.input--full-width {
+  width: 100%;
+}
+
+.input--submit {
+  height: 40px;
+  border: 1px solid white;
+  text-transform: uppercase;
+  background: $base-ui-color;
+}

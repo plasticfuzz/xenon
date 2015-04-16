@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+[class *= "wrapper"] {
+  margin: 0 auto;
+}
+
+.wrapper-1140 {
+  position: relative;
+  max-width: $base-website-width;
+}
+
+.m-10-top {
+  margin-top: 10px;
+}
+.m-10-bottom {
+  margin-bottom: 10px;
+}
