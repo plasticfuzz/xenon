@@ -95,20 +95,24 @@
       color: white;
       text-decoration: none;
       padding: 2.5em .5em 1em;
-      display: block;
+      display: inline-block;
     } 
     @media screen and (min-width: $bp-md) {
         .multibox__single__content {
           padding: 4em .75em 1em;
         }     
     }  
-      .multibox__single__content__wrap {
-        position: absolute;
-        padding: 1.25em;
-        margin: -1.25em;        
-        bottom: 1.25em;
-        width: 100%      
+      .multibox__single__content__wrap {  
       }
+      @media screen and (min-width: $bp-md) {
+      .multibox__single__content__wrap {
+          position: absolute;
+          padding: 1.25em;
+          margin: -1.25em;        
+          bottom: 1.25em;
+          width: 100% 
+        }     
+      }       
       .multibox__single__content__title {
         @include font-size(18px);
         text-transform: uppercase;

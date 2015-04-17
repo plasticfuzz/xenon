@@ -1,5 +1,8 @@
 (function() {
+
   var app = {
+
+    deviceMD: '768',
 
     userInterface: {
       // for multi-box
@@ -18,5 +21,10 @@
 
   };
 
-  app.userInterface.matchHeight('.js-multibox');
+  winWidth = $(window).width();
+
+  if (winWidth > app.deviceMD) {
+    app.userInterface.matchHeight('.js-multibox');
+  }
+
 })();
