@@ -1166,6 +1166,16 @@ this the same font stack that Normalize.css sets for the `body`.
         right: $base-spacing-unit / 4;
     }
 }  
+
+.pure-g {
+    height: 100%;
+}
+
+// used to invert margin.
+// useful for multiple nests of the grid.
+.pure-g-nested {
+    margin: 0 -5px -5px -5px;
+}
     // @media all and (min-width: $bp-sm) {
     //     .pure-g [class *= "pure-u"] {
     //         padding: {

@@ -13,18 +13,17 @@
     position: absolute;
     text-transform: uppercase;    
     color: #fff;
-    top: 1.5em;
+    top: 4.5em;
     left: .5em;
     font-weight: 700;
   }
-
-
   @media screen and (min-width: $bp-md) {
     .banner__title {
       padding-bottom: .5em;
       border-bottom: 1px solid #fff;
     }  
   }  
+
 
 .callout {
   margin-top: 10px;
@@ -41,10 +40,10 @@
     @include font-size(12px);    
     margin: 0;
   }  
-
   .callout__form {
 
   }
+
 
 .multibox {
 
@@ -52,21 +51,14 @@
   .multibox__single {
     background-color: $base-color;
     color: #fff;
+    transition: background-color 200ms ease-out;
     &:hover {
       background-color: lighten($base-color, 5%);
     }    
-    div {
-      height: auto;
-      height: 8em;
-      max-height: 10em;
-    }
   }
-
   @media screen and (min-width: $bp-md) {
     .multibox__single {
-      div {
-        height: 8.5em;
-      }
+
     }  
   }
 
@@ -76,46 +68,77 @@
       background-color: lighten($custom-yellow, 5%);
     }    
   } 
-
   .multibox__single--red {
     background-color: $custom-red;
     &:hover {
       background-color: lighten($custom-red, 5%);
     }    
   }    
-
   .multibox__single--green {
     background-color: $custom-green;
     &:hover {
       background-color: lighten($custom-green, 5%);
     }
   }    
-
-  .multibox__single__image {
-    background-size: cover;
-    background-position: center center;
-  }  
-
-  .multibox__single__content {
-    color: white;
-    text-decoration: none;
-    padding: 2.5em .5em 1em;
-  } 
-
-  @media screen and (min-width: $bp-md) {
-      .multibox__single__content {
-        padding: 4em .75em 1em;
-      }     
-  }  
-
-    .multibox__single__content__title {
-      @include font-size(18px);
-      text-transform: uppercase;
-      margin: 0 0 .25em 0;
+  .multibox__single--purple {
+    background-color: $custom-purple;
+    &:hover {
+      background-color: lighten($custom-purple, 5%);
     }
+  }   
+    .multibox__single__image {
+      background-size: cover;
+      background-position: center center;
+    }  
+    .multibox__single__content {
+      position: relative;
+      color: white;
+      text-decoration: none;
+      padding: 2.5em .5em 1em;
+      display: block;
+    } 
+    @media screen and (min-width: $bp-md) {
+        .multibox__single__content {
+          padding: 4em .75em 1em;
+        }     
+    }  
+      .multibox__single__content__wrap {
+        position: absolute;
+        padding: 1.25em;
+        margin: -1.25em;        
+        bottom: 1.25em;
+        width: 100%      
+      }
+      .multibox__single__content__title {
+        @include font-size(18px);
+        text-transform: uppercase;
+        margin: 0 0 .25em 0;
+      }
+      .multibox__single__content__title--jumbo {
+        @include font-size(24px);
+      }      
+      .multibox__single__content__paragraph {
+        @include font-size(12px);    
+        margin: 0;
+      }
 
-    .multibox__single__content__paragraph {
-      @include font-size(12px);    
-      margin: 0;
+  .multibox__single--flip {
+    div {
+      max-height: 18em;
     }
+  }  
+    .multibox__single--flip__image {
+      height: 8em;
+    }   
+    .multibox__single--flip__content {
+      padding: 2em 1.25em
+    }  
+    @media screen and (min-width: $bp-md) {
 
+      .multibox__single--flip {
+        div {
+          max-height: 100%;
+        }
+      } 
+     
+    }  
