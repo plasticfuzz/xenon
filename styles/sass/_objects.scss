@@ -13,14 +13,15 @@
     position: absolute;
     text-transform: uppercase;    
     color: #fff;
-    top: 4.5em;
-    left: .5em;
     font-weight: 700;
   }
   @media screen and (min-width: $bp-md) {
     .banner__title {
+      position: absolute;
       padding-bottom: .5em;
       border-bottom: 1px solid #fff;
+      top: 4.5em;
+      left: .5em;      
     }  
   }  
 
@@ -105,7 +106,7 @@
       .multibox__single__content__wrap {  
       }
       @media screen and (min-width: $bp-md) {
-      .multibox__single__content__wrap {
+        .multibox__single__content__wrap {
           position: absolute;
           padding: 1.25em;
           margin: -1.25em;        
@@ -119,8 +120,12 @@
         margin: 0 0 .25em 0;
       }
       .multibox__single__content__title--jumbo {
-        @include font-size(24px);
       }      
+      @media screen and (min-width: $bp-md) {
+        .multibox__single__content__wrap {
+          @include font-size(24px);
+        }     
+      }          
       .multibox__single__content__paragraph {
         @include font-size(12px);    
         margin: 0;
