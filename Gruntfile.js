@@ -190,8 +190,8 @@ module.exports = function(grunt) {
           'clean:distImages',
           'copy:regImages',
           'copy:sprite',
-          'clean:hacks', /* Used to get around an issue with using 'watch' on an empty folder */
-          'imageoptim:allImages'
+          'clean:hacks' /* Used to get around an issue with using 'watch' on an empty folder */
+          /*'imageoptim:allImages'*/
         ],
         /**
          * There needs to be at least one image in this target folder in order for watch to recognise changes
@@ -204,8 +204,8 @@ module.exports = function(grunt) {
         tasks: [
           'clean:sprite',
           'sprite:all',
-          'copy:sprite',
-          'imageoptim:allImages'
+          'copy:sprite'
+          //'imageoptim:allImages'
         ],
         files: [
           '<%= sprite.all.destDir %>'

@@ -34,7 +34,7 @@ $base-ui-color:      #1F84B2;
 $base-font-size:     16px;
 $base-line-height:   25px;
 $base-font-color:    #333;
-$base-font-family:   FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+$base-font-family:   'Open Sans', FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
 $base-spacing-unit:  20px;
 $half-spacing-unit:  $base-spacing-unit / 2 !default;
 $line-height-ratio:  $base-line-height / $base-font-size;
@@ -43,7 +43,7 @@ $line-height:        false;
 /*------------------------------------*\
     $IMPORTS / LIBS
 \*------------------------------------*/
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 @import "lib/normalize-3.0.2.scss";
 @import "lib/pure-grids-0.6.0--forked";
 

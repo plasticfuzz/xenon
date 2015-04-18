@@ -28,7 +28,7 @@
 
 .callout {
   margin-top: 10px;
-  padding: 1.25em;
+  padding: 1.25em 1.25em 2em 1.25em;
   background-color: $base-color;
   color: #fff;
 }
@@ -122,7 +122,7 @@
       .multibox__single__content__title--jumbo {
       }      
       @media screen and (min-width: $bp-md) {
-        .multibox__single__content__wrap {
+        .multibox__single__content__title--jumbo {
           @include font-size(24px);
         }     
       }          
