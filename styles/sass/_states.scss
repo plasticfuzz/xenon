@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    $STATES
+\*------------------------------------*/
+/**
+ *
+ * Some elements change 'state' i.e. become selected, active, invisible etc.
+ */
+ 
+.is-invisible { display: none; }
+.is-visible { display: block; }
+
+@media (min-width: $bp-sm) {
+    .is-invisible--gt-sm {
+        display: none;
+    }
+}
+
+@media (min-width: $bp-md) {
+    .is-invisible--gt-md {
+        display: none;
+    }
+    .is-like-heading {
+        text-align: center;
+    }
+}
+
+@media (min-width: $bp-lg) {
+    .is-invisible--gt-lg {
+        display: none;
+    }
+}
+
+@media (max-width: $bp-lt-sm) {
+    .is-invisible--lt-sm {
+        display: none;
+    }
+}
+
+@media (max-width: $bp-lt-md) {
+    .is-invisible--lt-md {
+        display: none;
+    }
+    .is-visible--lt-md {
+        display: block;
+    }
+}
+
+@media (max-width: $bp-lt-lg) {
+    .is-invisible--lt-lg {
+        display: none;
+    }
+    .is-visible--lt-lg {
+        display: block;
+    }
+}
+
+@media (min-width: $bp-md) and (max-width: $bp-lt-lg) {
+    .is-visible--sm-lg {
+        display: inline-block;
+    }
+}

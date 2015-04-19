@@ -2,7 +2,7 @@
   "use strict";  
 
   // Init globals
-  var screenWidth;
+  var screenWidth; 
 
   var app = {
 
@@ -16,8 +16,8 @@
     userInterface: {
       // for multi-box
       matchHeight: function(el, offset) {
+        el = $(el);        
         var arr  = $.makeArray();
-        el = $(el);
 
         if (typeof offset === 'undefined')
           offset = 0;
@@ -29,7 +29,19 @@
         });
 
         el.css('height', Math.max.apply( Math, arr ) + offset);
-      }
+      },
+
+      showHeaderNav: function(e) {
+        e.preventDefault();  
+        $(this).one('click', app.userInterface.hideHeaderNav);   
+        $('.js-header-nav').slideDown();
+      },
+
+      hideHeaderNav: function(e) {
+        e.preventDefault();             
+        $(this).one('click', app.userInterface.showHeaderNav);  
+        $('.js-header-nav').slideUp();             
+      }             
     }
 
   };
@@ -47,12 +59,16 @@
         .css('height', $('.js-multi-box-container').outerHeight() -10);
     }
 
+    // Header Mobile Nav
+    $('.js-toggle-header-nav').one('click', app.userInterface.showHeaderNav);
+    $('.js-header-nav').slideUp();
+
   });
 
   if (app.isTouchDevice) {
-      include("dist/scripts/fastclick.min.js", function () {
-          FastClick.attach(document.body);
-      });
+    include("dist/scripts/fastclick.min.js", function () {
+      FastClick.attach(document.body);
+    });
   }  
 
 }(this, document));
@@ -69,4 +85,4 @@ var WebFontConfig = {
   wf.async = 'true';
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(wf, s);
-})();     
+})();
