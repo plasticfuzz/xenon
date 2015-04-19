@@ -6,6 +6,19 @@
   margin: 0 auto;
 }
 
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.f-center {
+  float: none;
+  margin: 0 auto;
+}
+
 .wrapper-1140 {
   position: relative;
   max-width: $base-website-width;

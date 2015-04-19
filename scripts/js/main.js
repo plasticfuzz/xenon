@@ -46,11 +46,12 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
     screenWidth = $(window).width();
 
     if (screenWidth > app.deviceMD) {
-      app.userInterface.matchHeight('.js-multibox');
+      app.userInterface.matchHeight('.js-multi-box');
+      app.userInterface.matchHeight('.js-aside-box');
 
       // XXX: Edge case
       $('.js-callout-container')
-        .css('height', $('.js-multibox-container').outerHeight() -10);
+        .css('height', $('.js-multi-box-container').outerHeight() -10);
     }
 
   });

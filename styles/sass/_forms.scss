@@ -28,5 +28,6 @@ form {
   height: 40px;
   border: 1px solid white;
   text-transform: uppercase;
-  background: $base-ui-color;
+  background-color: $base-ui-color;
+  border-radius: 2px;  
 }
