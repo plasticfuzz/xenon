@@ -54,15 +54,19 @@
       app.userInterface.matchHeight('.js-multi-box');
       app.userInterface.matchHeight('.js-aside-box');
 
+      // Header Nav
+      $('.js-header-nav').slideDown();
+
       // XXX: Edge case
       $('.js-callout-container')
         .css('height', $('.js-multi-box-container').outerHeight() -10);
     }
 
-    // Header Mobile Nav
-    $('.js-toggle-header-nav').one('click', app.userInterface.showHeaderNav);
-    $('.js-header-nav').slideUp();
-
+    if (screenWidth < app.deviceMD) {
+      // Header Mobile Nav
+      $('.js-toggle-header-nav').one('click', app.userInterface.showHeaderNav);
+      $('.js-header-nav').slideUp();
+    }
   });
 
   if (app.isTouchDevice) {
