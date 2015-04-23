@@ -6,10 +6,15 @@ get_header(); $Px = 'kno_cent_'; ?>
   <div class="banner" style="background-image: url(<?php echo get_field( ($Px.'lead_banner') )['url']; ?>)">
     <div class="pure-g wrapper-1140">
       <div class="pure-u-1">
-        <h1 class="banner__title">CORPORATE FACILITIES MANAGEMENT TRAINING PROGRAMMES</h1>    
+        <h1 class="banner__title">
+          <?php if ( get_field('override_page_title') ) {
+            echo get_field('override_page_title');
+          } else { the_title(); } ?>
+        </h1>    
       </div>  
     </div>    
   </div>
+
   <main>
     <?php while(have_posts()): the_post() ?>
     <div class="pure-g wrapper-1140">  
@@ -74,7 +79,6 @@ get_header(); $Px = 'kno_cent_'; ?>
       </div>      
     </div>
 
-
     <div class="next-steps__callout">
       <div class="pure-g wrapper-1140">
         <?php // Knowledge Centre - Next Steps Callout ?><div class="pure-u-1">
@@ -87,10 +91,6 @@ get_header(); $Px = 'kno_cent_'; ?>
         </div>
       </div>    
     </div>
-
-
-
-    <?php endwhile ?>
-    </div>  
+    <?php endwhile ?> 
   </main>
 <?php get_footer();

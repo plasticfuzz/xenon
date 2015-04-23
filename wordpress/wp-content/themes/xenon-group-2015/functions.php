@@ -32,7 +32,6 @@ function register_image_sizes() {
 }
 
 function register_scripts() {
-
   // wp_register_script('modernizr',
   //   $bower . 'modernizr/modernizr.js', array(), false);  
 
@@ -46,7 +45,6 @@ function register_scripts() {
   // wp_enqueue_script('modernizr');     
   wp_enqueue_script('xe-jquery');  
   wp_enqueue_script('app');
-
 }
 
 // Echo post type string
