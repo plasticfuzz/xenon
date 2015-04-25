@@ -1,6 +1,8 @@
 <?php
 
-require_once('lib/post-types.php');
+require_once('lib/post-types.php'); // Custom PostTypes
+require_once('lib/classes/mailchimp.class.php'); // Mailchimp API Wrapper
+require_once('lib/classes/form_handler.class.php'); // AJAX Form Handler
 
 function init() {
   add_theme_support('post-thumbnails', array( 'post', 'page', 'xe-staff'));
@@ -41,15 +43,39 @@ function register_scripts() {
   wp_register_script('xe-jquery',
     asset_uri('scripts/jquery-1.11.2.min.js'), array(),'1.0.0', true );
 
-  // // Enqueue scripts
   // wp_enqueue_script('modernizr');     
   wp_enqueue_script('xe-jquery');  
   wp_enqueue_script('app');
+  wp_localize_script( 'app', 'xe', array(
+    'ajax_url' => admin_url('admin-ajax.php'),
+    'nonce'    => wp_create_nonce('xe'),
+  ) );  
 }
 
 // Echo post type string
 function post_type( $echo = true ) {
   if( $echo ) echo get_post_type( get_the_ID() );
+}
+
+////
+// Insert to MailChimp
+////
+function save_to_mailchimp( $email, $user_array ) {
+
+  // $api_key = get_field('mailchimp_api_key', 'option');
+  // $list_id = get_field('mailchimp_list_id', 'option');
+
+  $MailChimp = new \Drewm\MailChimp($api_key);
+
+  $result = $MailChimp->call('lists/subscribe', array(
+    'id'                => $list_id,
+    'email'             => array('email'=>$email),
+    'merge_vars'        => $user_array,
+    'double_optin'      => false,
+    'update_existing'   => true,
+    'replace_interests' => false,
+    'send_welcome'      => false,
+  ));
 }
 
 ////

@@ -61,7 +61,7 @@
     <div class="callout  js-callout-container">
       <h5 class="callout__title">Facilities management newsletter</h5>
       <p class="callout__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid mollitia sit, assumenda et vel doloremque delectus accusamus, illum culpa.</p>
-      <form action="" class="callout_form">
+      <form class="callout_form js-newsletter-form" data-ajax-post="newsletter">
         <input type="text" class="input--full-width">
         <input type="text" class="input--full-width">      
         <button class="input--submit input--full-width m-10-top">Keep me updated<i class="icon-chevron-right icon-md"></i></button>

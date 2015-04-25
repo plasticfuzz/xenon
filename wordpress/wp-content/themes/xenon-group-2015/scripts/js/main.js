@@ -21,7 +21,6 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
     deviceXL: '1280',
 
     userInterface: {
-      // for multi-box
       matchHeight: function(el, offset) {
         el = $(el);        
         var arr  = $.makeArray();
@@ -49,11 +48,51 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
         $(this).one('click', app.userInterface.showHeaderNav);  
         $('.js-header-nav').slideUp();             
       }             
+    },
+
+    ajax: {
+      $forms: $('.js-enquiry-form, .js-newsletter-form'),
+
+      init: function() {
+        app.ajax.$forms.on('submit', app.ajax.formHandler);
+      },
+
+      postAjax: function(data, action) {
+        var postData = { 
+          action     : action,
+          nonce      : xe.nonce,
+          serialized : data,
+        };
+
+        $.post(xe.ajax_url, postData, 
+          app.ajax.ajaxResponse, 'json');
+      },
+
+      ajaxResponse: function(response) {
+        if(response.success) {
+
+        } else {
+
+        }
+      },
+
+      formHandler: function(e) {
+        e.preventDefault();
+        var serialised_data = $(this).serialize(),
+          action  = $(this).data('ajaxPost');
+
+        if (typeof action !== 'undefined') {       
+          app.ajax.postAjax(serialised_data, action);        
+          $(this).find("button").prop('disabled',true); 
+        } else {
+          console.log('Invalid AJAX action.');
+        }
+      }    
     }
 
   };
 
-  $(window).bind("load resize", function() {
+  $(window).bind('load resize', function() {
 
     screenWidth = $(window).width();
 
@@ -81,6 +120,8 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
       FastClick.attach(document.body);
     });
   }  
+
+  app.ajax.init();
 
 }(this, document));
 

@@ -16,6 +16,7 @@ get_header(); $Px = 'kno_cent_'; ?>
   </div>
 
   <main>
+  
     <?php while(have_posts()): the_post() ?>
     <div class="pure-g wrapper-1140">  
       <?php // Knowledge Centre - Leading  ?><div class="pure-u-1">

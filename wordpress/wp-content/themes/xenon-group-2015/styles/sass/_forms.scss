@@ -3,9 +3,11 @@
 \*------------------------------------*/
 
 form {
+  input, button, textarea, select {
+    outline: 0;
+  }
   input {
     border: 0;
-    outline: 0;
     background-color: white;
     &:focus {
       background: darken(#fff, 3%)
@@ -26,8 +28,12 @@ form {
 
 .input--submit {
   height: 40px;
-  border: 1px solid white;
+  border: 1px solid #fff;
   text-transform: uppercase;
   background-color: $base-ui-color;
   border-radius: 2px;  
+}
+
+.input--submit[disabled], .input--submit[focus] {
+  border-color: rgba(255,255,255,0.3);
 }
