@@ -4,6 +4,11 @@ require_once('lib/post-types.php'); // Custom PostTypes
 require_once('lib/classes/mailchimp.class.php'); // Mailchimp API Wrapper
 require_once('lib/classes/form_handler.class.php'); // AJAX Form Handler
 
+$xe_settings = array(
+  'mailchimp_api_key' => '9f6c2963925975453cffb64c9678a0c0-us3',
+  'mailchimp_list_id' => '6f61c225f0'
+);
+
 function init() {
   add_theme_support('post-thumbnails', array( 'post', 'page', 'xe-staff'));
   add_theme_support( 'menus' );
@@ -62,13 +67,12 @@ function post_type( $echo = true ) {
 ////
 function save_to_mailchimp( $email, $user_array ) {
 
-  // $api_key = get_field('mailchimp_api_key', 'option');
-  // $list_id = get_field('mailchimp_list_id', 'option');
+  global $xe_settings;
 
-  $MailChimp = new \Drewm\MailChimp($api_key);
+  $mc = new \Drewm\MailChimp($xe_settings['mailchimp_api_key']);
 
-  $result = $MailChimp->call('lists/subscribe', array(
-    'id'                => $list_id,
+  $result = $mc->call('lists/subscribe', array(
+    'id'                => $xe_settings['mailchimp_list_id'],
     'email'             => array('email'=>$email),
     'merge_vars'        => $user_array,
     'double_optin'      => false,
@@ -98,4 +102,18 @@ function make_post_type_labels($singular, $plural) {
     'parent_item_colon' => "Parent $singular",
     'menu_name' => $plural
   );
+}
+////
+// Browser-safe slug
+////
+function make_slug($string) {
+  //Lower case everything
+  $string = strtolower($string);
+  //Make alphanumeric (removes all other characters)
+  $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+  //Clean up multiple dashes or whitespaces
+  $string = preg_replace("/[\s-]+/", " ", $string);
+  //Convert whitespaces and underscore to dash
+  $string = preg_replace("/[\s_]/", "-", $string);
+  return $string;
 }

@@ -14,12 +14,30 @@ form {
     }
   }
 
-  input[type='text'] {
+  input[type='text'], input[type='email'] {
     margin-top: 10px;
     text-indent: 10px;
     height: 38px;
     color: $base-font-color;
+    border: {
+      color: #fff;
+      width: 1px;
+      style: solid;
+    }
+    // &.is-valid {
+    //   border-color: $base-success-color;
+    // }
+    &.is-error {
+      border-color: $base-fail-color;
+    }
   }
+  label.error {
+    @include font-size(11px);
+    margin-top: -1px;
+    display: block;
+    background: $base-fail-color;
+    padding: .3em;
+  }  
 }
 
 .input--full-width {
@@ -35,5 +53,6 @@ form {
 }
 
 .input--submit[disabled], .input--submit[focus] {
-  border-color: rgba(255,255,255,0.3);
+  border-color: rgba(#fff, .3);
+  color: rgba(#fff, .75);  
 }

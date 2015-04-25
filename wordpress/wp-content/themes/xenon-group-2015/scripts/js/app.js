@@ -43,18 +43,50 @@
       }             
     },
 
+    tabs: {
+      $tabs: $('.js-tabs'),
+      $currentTab : $('.js-tab-current'),
+
+      init: function() {
+        app.tabs.$tabs.find('.js-tab-section').hide();
+        app.tabs.$tabs.bind('click', app.tabs.showTab);
+      },
+
+      showTab: function(e) {
+        alert('yo');
+        // app.tabs.$tabs.find(app.tabs.$currentTab).removeClass(app.tabs.$currentTab);
+        // $('.tab-section:visible').hide();
+      }
+    },
+
     ajax: {
       $forms: $('.js-enquiry-form, .js-newsletter-form'),
+      $submitBtn: null,
+      buttonText: null,
+      loadingText: 'Please wait...',
 
       init: function() {
         app.ajax.$forms.on('submit', app.ajax.formHandler);
+        app.ajax.$forms.validate({
+          highlight: function (el) {
+              $(el).addClass('is-error')
+                .removeClass('is-valid').closest('.form-group')
+                .addClass('is-error').removeClass('is-valid');
+          },
+          unhighlight: function (el) {
+              $(el).addClass('is-valid')
+                .removeClass('is-error').closest('.form-group')
+                .addClass('is-valid').removeClass('is-error');
+          },
+          //errorPlacement: function(error, element) {}          
+        });
       },
 
       postAjax: function(data, action) {
         var postData = { 
-          action     : action,
-          nonce      : xe.nonce,
-          serialized : data,
+          action : action,
+          nonce  : xe.nonce,
+          data   : data,
         };
 
         $.post(xe.ajax_url, postData, 
@@ -63,24 +95,35 @@
 
       ajaxResponse: function(response) {
         if(response.success) {
-
+          app.ajax.$submitbtn.text(response.data.message);
         } else {
-
+          app.ajax.$submitbtn.prop('disabled', false)
+            .text(response.data.message);
         }
       },
 
       formHandler: function(e) {
         e.preventDefault();
+
+        if(! $(this).valid()) return false;
+
         var serialised_data = $(this).serialize(),
           action  = $(this).data('ajaxPost');
 
         if (typeof action !== 'undefined') {       
-          app.ajax.postAjax(serialised_data, action);        
-          $(this).find("button").prop('disabled',true); 
+          app.ajax.$submitbtn = $(this).find('.js-submit');
+          app.ajax.buttonText = app.ajax.$submitbtn.text();
+          app.ajax.$submitbtn.prop('disabled', true)
+            .text(app.ajax.loadingText);
+          app.ajax.postAjax(serialised_data, action);          
         } else {
           console.log('Invalid AJAX action.');
         }
       }    
+    },
+
+    validation: {
+
     }
 
   };
@@ -114,6 +157,7 @@
     });
   }  
 
+  app.tabs.init();
   app.ajax.init();
 
 }(this, document));

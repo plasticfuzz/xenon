@@ -16,7 +16,7 @@ get_header(); $Px = 'kno_cent_'; ?>
   </div>
 
   <main>
-  
+
     <?php while(have_posts()): the_post() ?>
     <div class="pure-g wrapper-1140">  
       <?php // Knowledge Centre - Leading  ?><div class="pure-u-1">
@@ -42,15 +42,15 @@ get_header(); $Px = 'kno_cent_'; ?>
 
     <?php // Knowledge Centre - Content Tabs 
       if ( have_rows( ($Px.'tabs') ) ) : ?>
-        <div class="pure-g wrapper-1140">
-          <ul class="pure-u-1">
-            <?php while ( have_rows( ($Px.'tabs') ) ) : the_row(); ?><li>
-              <a href="#"><?php echo get_sub_field( ($Px.'tab_title') ); ?></a>
-            </li><?php endwhile; ?> 
+        <div class="pure-g wrapper-1140 js-tabs">
+          <ul class="pure-u-1"><?php 
+            for ( $i = 0; have_rows( ($Px.'tabs') ); $i++ ) : the_row(); ?><li>
+              <a href="#<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" class="<?php echo ($i === 0) ? 'js-tab-current' : ''; ?>"><?php echo get_sub_field( ($Px.'tab_title') ); ?></a>
+            </li><?php endfor; ?> 
           </ul>
 
           <?php while ( have_rows( ($Px.'tabs') ) ) : the_row(); ?>
-            <div class="pure-u-1">
+            <div id="<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" class="pure-u-1 js-tab-section">
               <?php echo get_sub_field( ($Px.'tab_paragraph') ); ?>            
             </div>
           <?php endwhile; ?>
