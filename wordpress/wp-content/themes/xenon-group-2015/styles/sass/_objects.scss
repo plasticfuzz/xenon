@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-position-x: center;
   height: 12em;
-  margin-bottom: 1.5em;
+  //margin-bottom: 1.5em;
 }
   .banner__title {
     @include font-size(22px);
@@ -20,16 +20,103 @@
       position: absolute;
       padding-bottom: .5em;
       border-bottom: 1px solid #fff;
-      top: 4.5em;
+      top: 2.75em;
       left: .5em;      
     }  
   }  
 
+.lead-box {
+  @include font-size(22px);      
+  font-weight: 300;
+  text-align: center;
+  background-color: white;
+  color: $base-ui-color;
+  margin-bottom: 1.5em;    
+}
+
+.introduction-box {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;  
+}
+  .introduction-box__overlay {
+    position: absolute;
+    background-color: rgba($base-ui-color, .95);
+    width: 100%;
+    height: 100%;
+  }
+  .introduction-box__content {
+    color: #fff;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    text-align: center; 
+    i {
+      float: left;      
+      width: 100%;
+    }
+  }
+  .introduction-box__content__title {
+    color: #fff;
+    text-transform: initial;   
+    font-weight: 300;
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    .introduction-box__content__wrap {    
+      height: auto !important;
+    }
+  }       
+  @media screen and (min-width: $bp-md) {
+    .introduction-box__content__wrap {
+      padding-right: 2em;
+    }
+  }    
+  @media screen and (min-width: $bp-md) {
+    .introduction-box__content {
+      padding: 2em;
+      text-align: left;
+      i {
+        float: left;
+        width: auto;
+        margin-top: 6px;
+        margin-right: 15px;      
+      }
+    }
+  }
+  .introduction-box__content__video {
+    position: relative; 
+    margin: 0 auto;
+    iframe,
+    object,
+    embed { 
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media screen and (min-width: $bp-md) {
+    .introduction-box__content__video {
+      position: relative; 
+      padding-bottom: 25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      height: auto;
+
+      iframe,
+      object,
+      embed { 
+        position: absolute;
+        top: 0;
+        left: -5px;
+      }
+    }
+  }   
 
 .callout {
   margin-top: 10px;
   padding: 1.25em 1.25em 2em 1.25em;
-  background-color: $base-color;
+  background-color: $base-ui-color;
   color: #fff;
 }
   @media screen and (max-width: $bp-sm) {
@@ -39,8 +126,10 @@
   }
   .callout__title {
       @include font-size(18px);
+      font-weight: 300;
       text-transform: uppercase;
       margin: 10px 0 .25em 0;
+      color: #fff;
   }
   .callout__paragraph {
     @include font-size(12px);    
@@ -80,7 +169,7 @@
     text-align: center;
     z-index: 10;
     position: relative;
-    color: white;
+    color: #fff;
     text-decoration: none;
     padding: 2em;
     display: inline-block;
@@ -89,6 +178,7 @@
         @include font-size(20px);
         text-transform: uppercase;
         margin: 10px 0 .25em 0;
+        color: #fff;
     }
     .aside-box__content__paragraph {
       @include font-size(12px);    
@@ -188,8 +278,10 @@
       }       
       .multi-box__single__content__title {
         @include font-size(18px);
+        font-weight: 300;        
         text-transform: uppercase;
         margin: 0 0 .25em 0;
+        color: #fff;
       }
       .multi-box__single__content__title--jumbo {
           @include font-size(22px);      

@@ -3,7 +3,13 @@
 \*------------------------------------*/
 
 h1, h2, h3, h3, h4, h5 {
-  font-weight: 300;
+  font-weight: 700;
+  color: $base-ui-color;
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .icon-md {

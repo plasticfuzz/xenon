@@ -187,6 +187,7 @@
     if (screenWidth > app.deviceMD) {
       app.userInterface.matchHeight('.js-multi-box');
       app.userInterface.matchHeight('.js-aside-box');
+      app.userInterface.matchHeight('.js-introduction-box');
 
       // Header Nav
       $('.js-header-nav').slideDown();

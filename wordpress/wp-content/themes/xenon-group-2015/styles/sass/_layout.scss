@@ -24,6 +24,11 @@
   max-width: $base-website-width;
 }
 
+.wrapper-1080 {
+  position: relative;
+  max-width: $base-website-width - 60px;
+}
+
 .m-10-top {
   margin-top: 10px;
 }
