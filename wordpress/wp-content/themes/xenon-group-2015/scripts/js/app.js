@@ -43,20 +43,77 @@
       }             
     },
 
+    // tabs: {
+    //   $tabs: $('.js-tabs'),
+    //   $tab: $('.js-tab'),
+    //   $currentTab : $('.js-tab-current'),
+
+    //   init: function() {
+    //     app.tabs.$tab.on('click', app.tabs.showTab);
+    //   },
+
+    //   showTab: function(e) {
+    //     e.preventDefault();   
+    //     app.tabs.$tabs.find('.js-tab-current').removeClass('js-tab-current');
+    //     $(this).addClass('js-tab-current');
+
+    //     var tab = $(this).attr("href");
+    //     $(".js-tab-section").not(tab).css("display", "none");
+    //     $(tab).fadeIn();
+    //   }
+    // },
+
     tabs: {
-      $tabs: $('.js-tabs'),
-      $currentTab : $('.js-tab-current'),
 
       init: function() {
-        app.tabs.$tabs.find('.js-tab-section').hide();
-        app.tabs.$tabs.bind('click', app.tabs.showTab);
+        app.tabs.bindUIfunctions();
+        app.tabs.pageLoadCorrectTab();
       },
 
-      showTab: function(e) {
-        alert('yo');
-        // app.tabs.$tabs.find(app.tabs.$currentTab).removeClass(app.tabs.$currentTab);
-        // $('.tab-section:visible').hide();
+      bindUIfunctions: function() {
+
+        // Delegation
+        $(document)
+          .on("click", ".transformer-tabs a[href^='#']:not('.active')", function(event) {
+            app.tabs.changeTab(this.hash);
+            event.preventDefault();
+          })
+          .on("click", ".transformer-tabs a.active", function(event) {
+            app.tabs.toggleMobileMenu(event, this);
+            event.preventDefault();
+          });
+
+      },
+
+      changeTab: function(hash) {
+
+        var anchor = $('[href="' + hash + '"]');
+        var div = $(hash);
+
+        // activate correct anchor (visually)
+        anchor.addClass("active").parent().siblings().find("a").removeClass("active");
+
+        // activate correct div (visually)
+        div.addClass("active").siblings().removeClass("active");
+
+        // update URL, no history addition
+        // You'd have this active in a real situation, but it causes issues in an <iframe> (like here on CodePen) in Firefox. So commenting out.
+        // window.history.replaceState("", "", hash);
+
+        // Close menu, in case mobile
+        anchor.closest("ul").removeClass("open");
+
+      },
+
+      // If the page has a hash on load, go to that tab
+      pageLoadCorrectTab: function() {
+        app.tabs.changeTab(document.location.hash);
+      },
+
+      toggleMobileMenu: function(event, el) {
+        $(el).closest("ul").toggleClass("open");
       }
+
     },
 
     ajax: {
@@ -69,14 +126,14 @@
         app.ajax.$forms.on('submit', app.ajax.formHandler);
         app.ajax.$forms.validate({
           highlight: function (el) {
-              $(el).addClass('is-error')
-                .removeClass('is-valid').closest('.form-group')
-                .addClass('is-error').removeClass('is-valid');
+            $(el).addClass('is-error')
+              .removeClass('is-valid').closest('.form-group')
+              .addClass('is-error').removeClass('is-valid');
           },
           unhighlight: function (el) {
-              $(el).addClass('is-valid')
-                .removeClass('is-error').closest('.form-group')
-                .addClass('is-valid').removeClass('is-error');
+            $(el).addClass('is-valid')
+              .removeClass('is-error').closest('.form-group')
+              .addClass('is-valid').removeClass('is-error');
           },
           //errorPlacement: function(error, element) {}          
         });
@@ -120,12 +177,7 @@
           console.log('Invalid AJAX action.');
         }
       }    
-    },
-
-    validation: {
-
     }
-
   };
 
   $(window).bind('load resize', function() {

@@ -42,22 +42,30 @@ get_header(); $Px = 'kno_cent_'; ?>
 
     <?php // Knowledge Centre - Content Tabs 
       if ( have_rows( ($Px.'tabs') ) ) : ?>
-        <div class="pure-g wrapper-1140 js-tabs">
-          <ul class="pure-u-1"><?php 
-            for ( $i = 0; have_rows( ($Px.'tabs') ); $i++ ) : the_row(); ?><li>
-              <a href="#<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" class="<?php echo ($i === 0) ? 'js-tab-current' : ''; ?>"><?php echo get_sub_field( ($Px.'tab_title') ); ?></a>
-            </li><?php endfor; ?> 
-          </ul>
+        <div class="pure-g wrapper-1140 tabs">
+          <nav role='navigation' class="transformer-tabs pure-u-1">
+            <ul><?php 
+              for ( $i = 0; have_rows( ($Px.'tabs') ); $i++ ) : the_row(); ?>
+                <li>
+  <a href="#<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" 
+     class="<?php echo ($i === 0) ? 'active' : ''; ?>">
+     <?php echo get_sub_field( ($Px.'tab_title') ); ?></a>
+                </li>
+              <?php endfor; ?> 
+            </ul>
+          </nav>
 
-          <?php while ( have_rows( ($Px.'tabs') ) ) : the_row(); ?>
-            <div id="<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" class="pure-u-1 js-tab-section">
-              <?php echo get_sub_field( ($Px.'tab_paragraph') ); ?>            
+          <?php for ( $i = 0; have_rows( ($Px.'tabs') ); $i++ ) : the_row(); ?>
+            <div id="<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" class="transformer-tabs__tab pure-u-1 <?php echo ($i === 0) ? 'active' : ''; ?>">
+              <div class="transformer-tabs__tab__content">
+                <?php echo get_sub_field( ($Px.'tab_paragraph') ); ?>     
+              </div>
             </div>
-          <?php endwhile; ?>
+          <?php endfor; ?>
         </div>                
       <?php 
     endif; ?> 
-
+    
     <div class="pure-g wrapper-1140">
       <?php // Knowledge Centre - Below Tab Content
         if ( get_field( ($Px.'why_study') ) ) : ?>

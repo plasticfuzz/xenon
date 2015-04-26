@@ -43,15 +43,21 @@ class form_handler {
         $last_name = null;
       }
 
-      save_to_mailchimp( $email, array(
+      $user_arr = array(
         'fname' => $first_name,
         'lname' => $last_name,
-      ) );
+      );
 
-      wp_send_json_success( array(
-        'message' => 'Subscription complete',
-        'nonce'    => wp_create_nonce('xe'),
-      ) );      
+      if(in_array("error", save_to_mailchimp( $email, $user_arr ))) {
+        wp_send_json_error( array(
+          'message' => 'Invalid Email, try again'      
+        ) );           
+      } else {
+        wp_send_json_success( array(
+          'message' => 'Subscription complete',
+          'nonce'    => wp_create_nonce('xe'),
+        ) );         
+      }
 
     } else {
       wp_send_json_error( array(

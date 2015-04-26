@@ -80,6 +80,8 @@ function save_to_mailchimp( $email, $user_array ) {
     'replace_interests' => false,
     'send_welcome'      => false,
   ));
+
+  return $result;
 }
 
 ////
