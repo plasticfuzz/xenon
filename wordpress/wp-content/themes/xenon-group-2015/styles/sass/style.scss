@@ -29,6 +29,7 @@ $custom-yellow: #FE9402;
 $custom-green:  #669934;
 $custom-purple: #AD07BF;
 $custom-gray: #DADADA;
+$custom-silver: #dadada;
 
 
 /*------------------------------------*\
@@ -60,5 +61,6 @@ $line-height:        false;
 @import "type";
 @import "objects";
 @import "forms";
+@import "buttons";
 @import "header";
 @import "footer";

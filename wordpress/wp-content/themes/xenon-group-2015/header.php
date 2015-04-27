@@ -33,17 +33,27 @@
       <div class="pure-u-1-2 header__operators">
         <a href="" class="icon-phone icon-lg header__operators__phone"></a>
         <a href="" class="icon-menu icon-xl header__operators__menu  js-toggle-header-nav"></a>
-      </div>         
-      <nav class="pure-u-1 pure-u-lg-2-3 header__navigation">
-        <div class="header__navigation__content  js-header-nav">
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#" class="a-login">Login</a></li>        
-          </ul>
-        </div>
-      </nav>
+      </div>  
+      <?php if ( has_nav_menu( 'header-nav' ) ) : ?>       
+        <nav class="pure-u-1 pure-u-lg-2-3 header__navigation">
+          <div class="header__navigation__content  js-header-nav">
+            <ul>
+              <?php
+                wp_nav_menu(array(
+                    'menu' => 'Header Nav',
+                    'theme_location' => 'header-nav',
+                    'depth' => 1,
+                    'container' => false,
+                    'container_class' => false,
+                    'menu_class' => false,
+                    'items_wrap' => '%3$s',
+                  )
+                )
+              ?>  
+              <li><a href="#" class="a-login">Login</a></li>        
+            </ul>
+          </div>
+        </nav>
+      <?php endif; ?>
     </div>
   </header>

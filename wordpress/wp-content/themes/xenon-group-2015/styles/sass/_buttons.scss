@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    $HTML
+\*------------------------------------*/
+.btn {
+  display: inline-block;
+  height: 40px;
+  line-height: 20px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  border-radius: 2px;  
+  text-decoration: none;
+}
+
+.btn--lg {
+  @include font-size(18px);
+}
+
+.btn--lg--padded {
+  height: auto;
+  padding: .75em 1.25em;
+}
+
+.btn--blue {
+  background-color: $base-ui-color;
+  color: #fff;
+}

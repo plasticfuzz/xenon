@@ -113,6 +113,22 @@
     }
   }   
 
+.next-steps-callout {
+  position: relative;
+  background-color: $base-ui-color; 
+  margin: 2em 0 0;
+}
+  .next-steps-callout__content {
+    color: #fff;
+    //padding-top: 2em;
+    padding-bottom: 2em;
+    text-align: center; 
+  }
+  .next-steps-callout__content__title {
+    @include font-size(18px);  
+    color: #fff;
+    font-weight: 400;
+  }
 .callout {
   margin-top: 10px;
   padding: 1.25em 1.25em 2em 1.25em;
@@ -176,6 +192,7 @@
   }   
     .aside-box__content__title {
         @include font-size(20px);
+        font-weight: 300;
         text-transform: uppercase;
         margin: 10px 0 .25em 0;
         color: #fff;

@@ -92,9 +92,9 @@ get_header(); $Px = 'kno_cent_'; ?>
         if ( have_rows( ($Px.'list') ) ) : ?>
           <div class="pure-u-1 pure-u-lg-1-2">
             <h4><?php echo count(get_field( ($Px.'list') ) ); ?> REASONS TO STUDY WITH XENON GROUP</h4>
-            <ul>
+            <ul class="key-point-list">
               <?php for ( $i = 1; have_rows( ($Px.'list') ); $i++ ) : 
-              the_row(); ?><li><p><?php echo $i, '. ', get_sub_field( ($Px.'list_item') ); ?>
+              the_row(); ?><li class="key-point-list__item"><p><?php echo $i, '. ', get_sub_field( ($Px.'list_item') ); ?>
               </p></li><?php endfor; ?> 
             </ul>
           </div>
@@ -104,14 +104,14 @@ get_header(); $Px = 'kno_cent_'; ?>
       </div>      
     </div>
 
-    <div class="next-steps__callout">
-      <div class="pure-g wrapper-1140">
+    <div class="next-steps-callout">
+      <div class="pure-g wrapper-1140 next-steps-callout__content">
         <?php // Knowledge Centre - Next Steps Callout ?><div class="pure-u-1">
-          <h5>
+          <h5 class="next-steps-callout__content__title">
             <?php echo get_field( ($Px.'next_steps_title') ); ?>
           </h5>
           <?php echo get_field( ($Px.'next_steps_paragraph') ); ?>
-          <a href="">
+          <a href="" class="btn btn--blue btn--lg btn--lg--padded m-20-top m-10-bottom">
           <?php echo get_field( ($Px.'next_steps_cta') ); ?></a>
         </div>
       </div>    
