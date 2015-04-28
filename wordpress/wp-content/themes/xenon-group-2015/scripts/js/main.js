@@ -118,7 +118,9 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
 
       // If the page has a hash on load, go to that tab
       pageLoadCorrectTab: function() {
-        app.tabs.changeTab(document.location.hash);
+        var hash = document.location.hash;
+        if(hash.length > 0)
+          app.tabs.changeTab(hash);
       },
 
       toggleMobileMenu: function(event, el) {

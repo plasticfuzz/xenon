@@ -16,7 +16,6 @@ get_header(); $Px = 'kno_cent_'; ?>
   </div>
 
   <main>
-
     <?php while(have_posts()): the_post() ?>
     <div class="pure-g wrapper-1140">  
       <?php // Knowledge Centre - Leading  ?><div class="lead-box pure-u-1">
@@ -84,17 +83,22 @@ get_header(); $Px = 'kno_cent_'; ?>
     
     <div class="pure-g wrapper-1140">
       <?php // Knowledge Centre - Below Tab Content
+        $vertical_list = get_field( ($Px.'show_vertical_list') );
+        $vertical_list_title = get_field( ($Px.'list_title') );
         if ( get_field( ($Px.'why_study') ) ) : ?>
-          <div class="pure-u-1 pure-u-lg-1-2">
+          <div class="pure-u-1 <?php echo ($vertical_list) ? 'pure-u-lg-1-2' : '' ?>">
             <?php echo get_field( ($Px.'why_study') ); ?>          
           </div>
         <?php endif;
-        if ( have_rows( ($Px.'list') ) ) : ?>
-          <div class="pure-u-1 pure-u-lg-1-2">
-            <h4><?php echo count(get_field( ($Px.'list') ) ); ?> REASONS TO STUDY WITH XENON GROUP</h4>
-            <ul class="key-point-list">
+        if ( $vertical_list && have_rows( ($Px.'list') ) ) : ?>
+          <div class="pure-u-1 pure-u-lg-1-2"><?php 
+            if ($vertical_list_title) : ?>
+              <h4><?php echo $vertical_list_title ?></h4><?php 
+            endif; ?>
+            <ul class="key-point-list <?php echo ($vertical_list_title) ? '' : 'm-20-top' ?>">
               <?php for ( $i = 1; have_rows( ($Px.'list') ); $i++ ) : 
-              the_row(); ?><li class="key-point-list__item"><p><?php echo $i, '. ', get_sub_field( ($Px.'list_item') ); ?>
+              the_row(); ?><li class="key-point-list__item"><p><?php echo 
+              get_sub_field( ($Px.'list_item_title') ); ?>
               </p></li><?php endfor; ?> 
             </ul>
           </div>
