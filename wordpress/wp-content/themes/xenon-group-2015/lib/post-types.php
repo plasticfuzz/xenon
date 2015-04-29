@@ -12,8 +12,10 @@ function register_post_types() {
   // If the slug is null the default is the lowercase plural name.
   $default_features = array('title', 'editor', 'thumbnail', 'excerpt');
   $post_types = array(
-    array('Team', 'Team Members', false, 'team',
+    array('Team', 'Team Members', true, 'team',
       $default_features),
+    array('Tutor', 'Tutors', true, 'tutor',
+      $default_features),    
   );
   foreach ($post_types as $cfg) {
     $singularName = $cfg[0];

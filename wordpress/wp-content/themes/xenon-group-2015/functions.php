@@ -19,6 +19,11 @@ function init() {
   register_post_types();
   register_image_sizes();  
 
+  acf_add_options_page( array(
+    'title' => 'XE Website',
+    'icon_url' => asset_uri('admin/icons/xe-icon.png')
+  ) );
+
   if(!is_admin()) {
     register_scripts();
   }
@@ -56,6 +61,12 @@ function register_scripts() {
     'nonce'    => wp_create_nonce('xe'),
   ) );  
 }
+
+function register_admin_styles() {
+  $url = asset_uri('admin/styles/css/style.css');
+  echo '<link rel="stylesheet" type="text/css" href="' . $url . '" />';
+}
+add_action('admin_head', 'register_admin_styles');
 
 // Echo post type string
 function post_type( $echo = true ) {
