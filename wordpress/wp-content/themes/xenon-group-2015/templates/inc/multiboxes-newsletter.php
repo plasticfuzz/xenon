@@ -134,8 +134,25 @@
   </div>
   <div class="pure-u-1 pure-u-lg-1-3">
     <div class="callout  js-callout-container">
-      <h5 class="callout__title">Facilities management newsletter</h5>
-      <p class="callout__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid mollitia sit, assumenda et vel doloremque delectus accusamus, illum culpa.</p>
+      <h5 class="callout__title"><?php 
+      $newsletter_title = get_field('newsletter_title', 'option');
+
+      if($newsletter_title) {
+        echo $newsletter_title;
+      } else {
+        echo 'You must setup the [newsletter] on the XE Settings page.';
+      }; ?>
+
+      </h5>
+      <p class="callout__paragraph"><?php
+      $newsletter_paragraph = get_field('newsletter_paragraph', 'option');
+
+      if($newsletter_paragraph) {
+        echo $newsletter_paragraph;
+      } else {
+        echo 'You must setup the [newsletter] on the XE Settings page.';
+      }; ?>
+      </p>
       <form class="callout_form js-newsletter-form"
         data-ajax-post="newsletter">
         <input type="text" class="input--full-width"
