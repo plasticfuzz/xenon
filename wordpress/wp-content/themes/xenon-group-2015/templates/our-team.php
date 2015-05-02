@@ -3,7 +3,8 @@
  * Template Name: Our Team
  */
 get_header(); $Px = 'our_team_'; $Sx = 'team_mem_'; $Tx = 'tut_'; ?>
-  <div class="banner" style="background-image: url(<?php echo get_field( ($Px.'lead_banner') )['url']; ?>)">
+  <?php $banner_url = get_field( ($Px.'lead_banner') ); ?>
+  <div class="banner" <?php if($banner_url) echo 'style="background-image: url('. $banner_url['url'] . ')"' ?>>
     <div class="pure-g wrapper-1140">
       <div class="pure-u-1">
         <h1 class="banner__title">
@@ -17,11 +18,14 @@ get_header(); $Px = 'our_team_'; $Sx = 'team_mem_'; $Tx = 'tut_'; ?>
 
   <main>
     <?php while(have_posts()): the_post() ?>
-      <div class="pure-g wrapper-1140">  
-        <?php // Knowledge Centre - Leading  ?><div class="lead-box pure-u-1">
-          <?php echo get_field( ($Px.'lead_paragraph') ); ?>
-        </div>
-      </div>  
+      <?php $lead_p = get_field( ($Px.'lead_paragraph') );
+      if ($lead_p) : ?>        
+        <div class="pure-g wrapper-1140">  
+          <?php // Our Team - Leading  ?><div class="lead-box pure-u-1">
+            <?php echo $lead_p; ?>
+          </div>
+        </div><?php
+      endif; ?>
 
       <?php 
       $posts = get_field( ($Px.'members') );

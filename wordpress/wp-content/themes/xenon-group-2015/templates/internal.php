@@ -21,7 +21,7 @@ get_header(); $Px = 'int_'; ?>
     <?php $lead_p = get_field( ($Px.'lead_paragraph') );
     if ($lead_p) : ?>        
       <div class="pure-g wrapper-1140">  
-        <?php // Knowledge Centre - Leading  ?><div class="lead-box pure-u-1">
+        <?php // Internal - Leading  ?><div class="lead-box pure-u-1">
           <?php echo $lead_p; ?>
         </div>
       </div><?php
@@ -32,7 +32,7 @@ get_header(); $Px = 'int_'; ?>
       <div class="introduction-box" style="background-image: url(<?php echo ( get_field( ($Px.'int_background') ) ) ? get_field( ($Px.'int_background') )['url'] : '' ?>)">
         <div class="introduction-box__overlay"></div>
         <div class="introduction-box__content pure-g wrapper-1080">
-          <?php // Knowledge Centre - Introduction Callout ?>
+          <?php // Internal - Introduction Callout ?>
           <div class="pure-u-1 pure-u-md-1-2 introduction-box__content__wrap js-introduction-box">
             <h2 class="introduction-box__content__title"><i class="icon-video icon-lg"></i><?php echo get_field( ($Px.'int_vid_title') ); ?></h2>
             <?php echo get_field( ($Px.'int_vid_paragraph') ); ?>
@@ -61,13 +61,13 @@ get_header(); $Px = 'int_'; ?>
     <?php $above_tab_content = get_field( ($Px.'qualifications') );
     if ($above_tab_content) : ?>
       <div class="pure-g wrapper-1140">
-        <?php // Knowledge Centre - Above Tab Content ?><div class="pure-u-1">
+        <?php // Internal - Above Tab Content ?><div class="pure-u-1">
           <?php echo $above_tab_content; ?>
         </div>
       </div><?php
     endif; ?>
 
-    <?php // Knowledge Centre - Content Tabs 
+    <?php // Internal - Content Tabs 
       if ( ($Px.'show_content_tabs') && have_rows( ($Px.'tabs') ) ) : ?>
         <div class="pure-g wrapper-1140 tabs">
           <nav role='navigation' class="transformer-tabs pure-u-1">
@@ -94,7 +94,7 @@ get_header(); $Px = 'int_'; ?>
     endif; ?> 
     
     <div class="pure-g wrapper-1140">
-      <?php // Knowledge Centre - Below Tab Content
+      <?php // Internal - Below Tab Content
         $vertical_list = get_field( ($Px.'show_vertical_list') );
         $vertical_list_title = get_field( ($Px.'list_title') );
         if ( get_field( ($Px.'why_study') ) ) : ?>
@@ -128,7 +128,7 @@ get_header(); $Px = 'int_'; ?>
     if ($next_steps) : ?>  
       <div class="next-steps-callout">
         <div class="pure-g wrapper-1140 next-steps-callout__content">
-          <?php // Knowledge Centre - Next Steps Callout ?><div class="pure-u-1">
+          <?php // Internal - Next Steps Callout ?><div class="pure-u-1">
             <h5 class="next-steps-callout__content__title">
               <?php echo get_field( ($Px.'next_steps_title') ); ?>
             </h5>
