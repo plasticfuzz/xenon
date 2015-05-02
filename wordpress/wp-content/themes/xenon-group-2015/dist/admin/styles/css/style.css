@@ -17,10 +17,20 @@
 .menu-icon-xe-tutor.wp-menu-open .wp-menu-image {
   background: url('../../icons/tutor-icon-open.png') no-repeat center;
 }
+
+.menu-icon-xe-testimonial .wp-menu-image {
+  background: url('../../icons/testimonial-icon.png') no-repeat center;
+}
+.menu-icon-xe-testimonial:hover .wp-menu-image {
+  background: url('../../icons/testimonial-icon-active.png') no-repeat center;
+}
+.menu-icon-xe-testimonial.wp-menu-open .wp-menu-image {
+  background: url('../../icons/testimonial-icon-open.png') no-repeat center;
+}
+
 .multi-box-blue, .multi-box-yellow, .multi-box-red, .multi-box-green {
   color: white; 
 }
-
 .multi-box-blue {
   background: #1F84B2; 
 }

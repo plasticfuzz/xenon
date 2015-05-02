@@ -37,7 +37,7 @@
               </a>
             </div>
           </div><?php
-          endif; wp_reset_postdata(); ?>
+          wp_reset_postdata(); endif; ?>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
         <?php if( $multi_box_yellow ) : 
@@ -67,7 +67,7 @@
               </a>
             </div>
           </div><?php
-          endif; wp_reset_postdata(); ?>
+          wp_reset_postdata(); endif; ?>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
         <?php if( $multi_box_red ) : 
@@ -97,7 +97,7 @@
               </a>
             </div>
           </div><?php
-          endif; wp_reset_postdata(); ?>
+          wp_reset_postdata(); endif; ?>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
         <?php if( $multi_box_green ) : 
@@ -127,7 +127,7 @@
               </a>
             </div>
           </div><?php
-          endif; wp_reset_postdata(); ?>
+          wp_reset_postdata(); endif; ?>
         </div>            
       </div>           
     </div>    

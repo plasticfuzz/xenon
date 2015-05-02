@@ -15,7 +15,9 @@ function register_post_types() {
     array('Team', 'Team Members', true, 'team',
       $default_features),
     array('Tutor', 'Tutors', true, 'tutor',
-      $default_features),    
+      $default_features),
+    array('Testimonial', 'Testimonials', true, 'testimonial',
+      $default_features),        
   );
   foreach ($post_types as $cfg) {
     $singularName = $cfg[0];

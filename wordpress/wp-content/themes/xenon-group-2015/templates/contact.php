@@ -26,6 +26,7 @@ get_header(); $Px = 'contact_'; ?>
           </div>
         </div><?php
       endif; ?>
+      <p>Work in progress</p>
     <?php endwhile ?> 
   </main>
 <?php get_footer();

@@ -35,6 +35,12 @@
   color: $base-ui-color;
   margin-bottom: 1.5em;    
 }
+  // Layout based control;
+  @media screen and (min-width: $bp-md) {
+    .column-layout .lead-box {
+      text-align: left;
+    }
+  }
 
 .introduction-box {
   position: relative;
@@ -119,18 +125,32 @@
   position: relative;
   background-color: $base-ui-color; 
   margin: 2em 0 0;
+  text-align: center;
 }
   .next-steps-callout__content {
     color: #fff;
     //padding-top: 2em;
     padding-bottom: 2em;
-    text-align: center; 
   }
   .next-steps-callout__content__title {
     @include font-size(18px);  
     color: #fff;
     font-weight: 400;
   }
+  // Layout based control;
+  @media screen and (min-width: $bp-md) {
+    .column-layout .next-steps-callout {
+      background-color: #fff; 
+      text-align: left;
+      margin: 0;
+    }
+    .column-layout .next-steps-callout__content {
+      color: $base-font-color;
+    }
+    .column-layout .next-steps-callout__content__title {
+      color: $base-ui-color;
+    }  
+  }  
 .callout {
   margin-top: 10px;
   padding: 1.25em 1.25em 2em 1.25em;
@@ -361,7 +381,7 @@
     }
   }  
 }  
-@media (min-width: $bp-lg) {
+@media (min-width: $bp-md) {
   .transformer-tabs {  
     ul {
       overflow: hidden;    
@@ -372,7 +392,7 @@
       border-right: 2px solid #fff;
     }
     a {
-      padding: 0.75em;
+      padding: 1em 1.5em
     }
   }
 }
@@ -396,9 +416,9 @@
     color: #fff;    
   }
 }
-@media (min-width: $bp-lg) {
+@media (min-width: $bp-md) {
   .transformer-tabs__tab__content {
-    padding: 0 .75em;
+    padding: .5em 1.5em;
   }
 }
 

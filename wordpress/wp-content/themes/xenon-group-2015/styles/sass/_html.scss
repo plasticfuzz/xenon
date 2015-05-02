@@ -53,7 +53,12 @@ body {
       font-weight: 400;
     }
   }
-
+  // Layout based control;
+  @media screen and (min-width: $bp-lg) {
+    .key-point-list__container {
+      padding-left: 30px;
+    }
+  }
 .clearfix {
   &:after {
     content: "";
