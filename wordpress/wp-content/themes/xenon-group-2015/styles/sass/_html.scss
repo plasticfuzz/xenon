@@ -53,3 +53,11 @@ body {
       font-weight: 400;
     }
   }
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}  

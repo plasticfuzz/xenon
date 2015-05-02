@@ -3,10 +3,12 @@
 \*------------------------------------*/
 
 .banner {
-  background-repeat: no-repeat;
-  background-position-x: center;
+  background: {
+    image: url('dist/images/default-banner.jpg');
+    repeat: no-repeat;    
+    position-x: center;
+  }
   height: 12em;
-  //margin-bottom: 1.5em;
 }
   .banner__title {
     @include font-size(22px);
@@ -220,12 +222,12 @@
     }    
   }
   @media screen and (min-width: $bp-md) {
-    .multi-box__single {
-
+    .multi-box__single__image {
+      min-height: 13em;
     }  
   }
 
-  .multi-box__single--orange {
+  .multi-box__single--yellow {
     background-color: $custom-yellow;
     &:hover {
       background-color: lighten($custom-yellow, 5%);
@@ -399,3 +401,203 @@
     padding: 0 .75em;
   }
 }
+
+.our-team-tutor-box {
+  border: 1px solid $base-ui-color;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;  
+}
+  @media screen and (max-width: $bp-sm) {
+    .our-team-tutor-box {    
+      height: auto !important;
+    }
+  }
+
+.our-team-tutor-box__content {
+  position: relative;
+  padding: 1em;
+}
+  .our-team-tutor-box__content__center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+.our-team-tutor-box__content--table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  .our-team-tutor-box__title {
+    @include font-size(18px);
+    color: #fff;
+    display: block;
+    background: none;
+    font-weight: 400;        
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    cursor: initial;
+    span {
+      @include font-size(16px);    
+      font-weight: 300;  
+      width: 100%;
+      margin-top: .5em;
+      text-transform: initial;
+    }
+  }
+}  
+
+.our-team-tutor-box__title {
+  @include font-size(16px);
+  position: relative;  
+  color: $base-ui-color;
+  margin: 0;
+  span {
+    margin-top: .15em;
+    display: inline-block;
+    width: 100%;
+  }
+}
+.our-team-tutor-box__content p {
+  @include font-size(14px);
+}
+
+.our-team-tutor-box--become-tutor {
+  display: inline-block;
+  background: {
+    image: url('dist/images/work-with-fm-bg.jpg');
+    size: cover;
+    repeat: no-repeat;
+    position-x: center;
+  };
+  &:hover .our-team-tutor-box__overlay {
+    background-color: rgba($base-ui-color, .92);    
+  }
+}
+.our-team-tutor-box__overlay {
+  position: absolute;
+  background-color: rgba($base-ui-color, .85);
+  width: 100%;
+  height: 100%;  
+  transition: background-color 200ms ease-out;
+}
+
+.our-team-member-box {
+  //padding: 1em;
+  background-color: $base-ui-color;
+  position: relative;
+  overflow: hidden;
+}
+.our-team-member-box--bg {
+  background: {
+    size: cover;
+    repeat: no-repeat;
+    position-x: center;
+  };
+}
+.our-team-member-box--work-with-fm {
+  display: inline-block;
+  background: {
+    image: url('dist/images/work-with-fm-bg.jpg');
+    size: cover;
+    repeat: no-repeat;
+    position-x: center;
+  };
+  &:hover .our-team-member-box__overlay {
+    background-color: rgba($base-ui-color, .92);    
+  }
+}
+.our-team-member-box__overlay {
+  position: absolute;
+  background-color: rgba($base-ui-color, .85);
+  width: 100%;
+  height: 100%;  
+  transition: background-color 200ms ease-out;
+}
+  @media screen and (max-width: $bp-sm) {
+    .our-team-member-box {    
+      height: auto !important;
+    }
+    .our-team-member-box__wrap {
+      margin-top: 0 !important;
+    }
+  }
+  .our-team-member-box__wrap {
+    float: left;
+    transition: all 400ms ease-out;
+  }
+  .our-team-member-box--is-open {
+    .our-team-member-box__wrap {
+      margin-top: 0 !important;      
+    }
+    .our-team-member-box__title {
+      background-color: rgba($base-ui-color, 0);
+    }
+  }
+
+.our-team-member-box__title {
+  @include font-size(16px);
+  position: relative;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+  padding: 1em;
+  cursor: pointer;
+  background-color: rgba($base-ui-color, .9);
+  transition: all 400ms ease-out;  
+  span {
+    @include font-size(13px);    
+    margin-top: .15em;
+    display: inline-block;
+    width: 100%;
+  }
+}
+.our-team-member-box__title i {
+  position: absolute;
+  bottom: .5em;
+  right: .3em;
+}  
+@media (min-width: $bp-md) {
+  .our-team-member-box__title:hover {
+  background-color: rgba($base-ui-color, .95);
+  }  
+}
+.our-team-member-box__content {
+  position: relative;
+  padding: 1em;
+}
+  .our-team-member-box__content__center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+.our-team-member-box__content--table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  .our-team-member-box__title {
+    @include font-size(22px);
+    display: block;
+    background: none;
+    font-weight: 400;        
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    cursor: initial;
+    span {
+      @include font-size(16px);    
+      font-weight: 300;  
+      width: 100%;
+      margin-top: 1.5em;
+      text-transform: initial;
+    }
+  }
+}  
+  .our-team-member-box__content p {
+    @include font-size(12px);
+    color: #fff;
+  }
+  .our-team-member-box__content img {
+    margin-top: 15px;
+    max-width: 100%;
+  }

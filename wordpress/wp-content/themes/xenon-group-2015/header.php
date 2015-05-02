@@ -25,9 +25,10 @@
   <header class="header">
     <div class="pure-g wrapper-1140">
       <div class="pure-u-1-2 pure-u-md-1 pure-u-lg-1-3 header__logo">
-        <a href="">
+        <a title="<?php bloginfo('name') ;?>" 
+            href="<?php echo bloginfo('url') ?>">
           <img src="<?php echo asset_uri(
-            'images/logo--low-res.png') ?>" alt="">
+            'images/logo--low-res.png') ?>" alt="Xenon Group">
         </a>
       </div>      
       <div class="pure-u-1-2 header__operators">

@@ -48,12 +48,20 @@ h1, h2, h3, h3, h4, h5 {
   vertical-align: sub;  
 }
 
+.icon-chevron-down:before {
+  content: "\e60a";
+}
+
 .icon-chevron-left:before {
   content: "\e600";
 }
 
 .icon-chevron-right:before {
   content: "\e601";
+}
+
+.icon-chevron-up:before {
+  content: "\e60b";
 }
 
 .icon-triangle-left:before {

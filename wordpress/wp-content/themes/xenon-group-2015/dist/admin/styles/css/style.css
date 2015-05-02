@@ -1,0 +1,35 @@
+.menu-icon-xe-team .wp-menu-image {
+  background: url('../../icons/team-icon.png') no-repeat center;
+}
+.menu-icon-xe-team:hover .wp-menu-image {
+  background: url('../../icons/team-icon-active.png') no-repeat center;
+}
+.menu-icon-xe-team.wp-menu-open .wp-menu-image {
+  background: url('../../icons/team-icon-open.png') no-repeat center;
+}
+
+.menu-icon-xe-tutor .wp-menu-image {
+  background: url('../../icons/tutor-icon.png') no-repeat center;
+}
+.menu-icon-xe-tutor:hover .wp-menu-image {
+  background: url('../../icons/tutor-icon-active.png') no-repeat center;
+}
+.menu-icon-xe-tutor.wp-menu-open .wp-menu-image {
+  background: url('../../icons/tutor-icon-open.png') no-repeat center;
+}
+.multi-box-blue, .multi-box-yellow, .multi-box-red, .multi-box-green {
+  color: white; 
+}
+
+.multi-box-blue {
+  background: #1F84B2; 
+}
+.multi-box-yellow {
+  background: #FE9402;
+}
+.multi-box-red {
+  background: #CD3333;
+}
+.multi-box-green {
+  background: #669934;
+}

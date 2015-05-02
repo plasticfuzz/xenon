@@ -1,4 +1,8 @@
   <?php // Enable Multiboxes and Newsletter Signup
+    if ( get_field('enable_timeline') ) { 
+      locate_template('templates/inc/box-timeline.php', true);
+    }
+
     if ( get_field('enable_multiboxes_newsletter') ) { 
       locate_template('templates/inc/multiboxes-newsletter.php', true);
     } ?>

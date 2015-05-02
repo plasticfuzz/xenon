@@ -25,6 +25,27 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
     deviceXL: '1280',
 
     userInterface: {
+      init: function() {
+
+        // Team Member Binds
+        $('.js-members-box-title').on('click', function() {
+          var $this = $(this).closest('.js-member-box'),
+              $icon = $this.find('.js-members-box-title-icon');
+
+          if ($this.hasClass('our-team-member-box--is-open')) {
+            $this.removeClass('our-team-member-box--is-open');
+            $icon
+              .removeClass('icon-chevron-down')
+              .addClass('icon-chevron-up');
+          } else {
+            $this.addClass('our-team-member-box--is-open');
+            $icon
+              .removeClass('icon-chevron-up')
+              .addClass('icon-chevron-down');          
+          }
+        });        
+      },
+      
       matchHeight: function(el, offset) {
         el = $(el);        
         var arr  = $.makeArray();
@@ -198,9 +219,22 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
     screenWidth = $(window).width();
 
     if (screenWidth > app.deviceMD) {
+
+      // Reset Team Member Box
+      $('.js-member-box')
+        .css('height', 'auto');
+      $('.our-team-member-box__wrap')
+        .css('margin-top', 'auto');
+
       app.userInterface.matchHeight('.js-multi-box');
       app.userInterface.matchHeight('.js-aside-box');
       app.userInterface.matchHeight('.js-introduction-box');
+      app.userInterface.matchHeight('.js-member-box');    
+      app.userInterface.matchHeight('.js-tutor-box');
+
+      // Team Member Box
+      $('.our-team-member-box__wrap')
+        .css('margin-top', $('.js-member-box').outerHeight() - 70);
 
       // Header Nav
       $('.js-header-nav').slideDown();
@@ -225,6 +259,7 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
 
   app.tabs.init();
   app.ajax.init();
+  app.userInterface.init();
 
 }(this, document));
 
