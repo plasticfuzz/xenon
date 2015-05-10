@@ -19,12 +19,12 @@ function init() {
 
   register_post_types();
   register_image_sizes();  
-
-  acf_add_options_page( array(
-    'title' => 'XE Website',
-    'icon_url' => asset_uri('admin/icons/xe-icon.png')
-  ) );
-
+  if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page( array(
+      'title' => 'XE Website',
+      'icon_url' => asset_uri('admin/icons/xe-icon.png')
+    ) );
+  }
   if(!is_admin()) {
     register_scripts();
   }

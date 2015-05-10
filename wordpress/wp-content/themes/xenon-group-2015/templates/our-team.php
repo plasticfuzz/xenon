@@ -37,7 +37,8 @@ get_header(); $Px = 'our_team_'; $Sx = 'team_mem_'; $Tx = 'tut_'; ?>
           <?php foreach( $posts as $post) : ?>
             <?php setup_postdata($post); ?>
             <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-              <div class="our-team-member-box our-team-member-box--bg  js-member-box" style="background-image: url(<?php echo get_field( ($Sx.'background') )['url']; ?>)">
+              <?php $banner_url = get_field( ($Sx.'background') ); ?>
+              <div class="our-team-member-box our-team-member-box--bg  js-member-box" style="background-image: url(<?php echo $banner_url['url']; ?>)">
                 <div class="our-team-member-box__overlay"></div>              
                 <div class="our-team-member-box__wrap">
                   <h6 class="our-team-member-box__title  js-members-box-title">

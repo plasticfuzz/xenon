@@ -40,8 +40,9 @@ get_header(); $Px = 'int_'; ?>
       endif; ?>
 
       <?php $introduction_callout = get_field( ($Px.'show_int') );
-      if ($introduction_callout) : ?>    
-        <div class="introduction-box" style="background-image: url(<?php echo ( get_field( ($Px.'int_background') ) ) ? get_field( ($Px.'int_background') )['url'] : '' ?>)">
+      if ($introduction_callout) : 
+        $banner_url = get_field( ($Sx.'background') ); ?>
+        <div class="introduction-box" style="background-image: url(<?php echo $banner_url['url']; ?>)">
           <div class="introduction-box__overlay"></div>
           <div class="introduction-box__content pure-g wrapper-1080">
             <?php // Internal - Introduction Callout ?>
@@ -160,9 +161,9 @@ get_header(); $Px = 'int_'; ?>
           <div class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-4 aside-column">   
             <?php // Aside articles 
               if( $aside_articles ): ?>
-                <aside class="aside-box">
-                  <div class="pure-g">  
                   <?php foreach( $aside_articles as $post): ?>
+                    <aside class="aside-box m-20-bottom">
+                      <div class="pure-g">                      
                       <?php setup_postdata($post); ?>
                       <?php if ( has_post_thumbnail() ) :
                         $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), medium );
@@ -172,21 +173,21 @@ get_header(); $Px = 'int_'; ?>
                         $style = 'style="background-image: url(
                           http://placehold.it/200x200&text=Featured+Image)"';
                       endif; ?>
-                    <div <?php echo $style ?> class="pure-u-1 aside-box__image"></div>      
-                    <a href="<?php the_permalink() ?>" class="pure-u-1 aside-box__content">
-                      <h5 class="aside-box__content__title"><?php echo the_title() ?></h5>
-                      <p class="aside-box__content__paragraph">
-                        <?php $excerpt = get_the_excerpt();
-                        if ($excerpt) {
-                          echo $excerpt;
-                        } else {
-                          echo 'Oh no!<br>Looks like this post does not have an excerpt, please go to this page and configure it.';
-                        } ?>          
-                      </p>
-                    </a>         
+                      <div <?php echo $style ?> class="pure-u-1 aside-box__image"></div>      
+                      <a href="<?php the_permalink() ?>" class="pure-u-1 aside-box__content">
+                        <h5 class="aside-box__content__title"><?php echo the_title() ?></h5>
+                        <p class="aside-box__content__paragraph">
+                          <?php $excerpt = get_the_excerpt();
+                          if ($excerpt) {
+                            echo $excerpt;
+                          } else {
+                            echo 'Oh no!<br>Looks like this post does not have an excerpt, please go to this page and configure it.';
+                          } ?>          
+                        </p>
+                      </a>  
+                    </div>
+                  </aside>                           
                   <?php endforeach; ?>
-                  </div>
-                </aside>
                 <?php wp_reset_postdata(); 
               endif; ?>         
           </div>       
