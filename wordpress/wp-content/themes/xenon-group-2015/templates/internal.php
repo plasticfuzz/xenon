@@ -20,7 +20,7 @@ get_header(); $Px = 'int_'; ?>
     <?php while(have_posts()): the_post() ?>
 
       <?php
-        $testimonial    = get_field( ($Px.'aside_testimonial') );
+        $aside_testimonial = get_field( ($Px.'aside_testimonial') );
         $aside_articles = get_field( ($Px.'aside_articles') );
         $column_layout  = $testimonial || $aside_articles; ?>
 
@@ -157,39 +157,56 @@ get_header(); $Px = 'int_'; ?>
 
       <?php // Boolean based on if [aside] has content.
       if( $column_layout ) : ?>      
-          </div>
-          <div class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-4 aside-column">   
-            <?php // Aside articles 
+        </div>
+        <div class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-4 aside-column">   
+          <?php // Aside testimonials 
+            if( $aside_testimonial ) :
+              $post = $aside_testimonial;
+              setup_postdata( $post ); $Sx = 'tes_'; ?>
+                <aside class="aside-box m-20-bottom">
+                  <div class="pure-u-1 aside-box__content">
+                    <p class="aside-box__content__paragraph">
+                    <?php
+                        the_field( ($Sx . 'body') );
+                        the_field( ($Sx . 'name') );
+                        the_field( ($Sx . 'title') );
+                        the_field( ($Sx . 'company') ); ?>        
+                    </p>
+                  </div>  
+                </aside>                           
+              <?php wp_reset_postdata(); 
+            endif; ?>             
+          <?php // Aside articles 
               if( $aside_articles ): ?>
-                  <?php foreach( $aside_articles as $post): ?>
-                    <aside class="aside-box m-20-bottom">
-                      <div class="pure-g">                      
-                      <?php setup_postdata($post); ?>
-                      <?php if ( has_post_thumbnail() ) :
-                        $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), medium );
-                        $style = 'style="background-image: url(
-                          ' . $image[0] . ')"';
-                      else :
-                        $style = 'style="background-image: url(
-                          http://placehold.it/200x200&text=Featured+Image)"';
-                      endif; ?>
-                      <div <?php echo $style ?> class="pure-u-1 aside-box__image"></div>      
-                      <a href="<?php the_permalink() ?>" class="pure-u-1 aside-box__content">
-                        <h5 class="aside-box__content__title"><?php echo the_title() ?></h5>
-                        <p class="aside-box__content__paragraph">
-                          <?php $excerpt = get_the_excerpt();
-                          if ($excerpt) {
-                            echo $excerpt;
-                          } else {
-                            echo 'Oh no!<br>Looks like this post does not have an excerpt, please go to this page and configure it.';
-                          } ?>          
-                        </p>
-                      </a>  
-                    </div>
-                  </aside>                           
-                  <?php endforeach; ?>
-                <?php wp_reset_postdata(); 
-              endif; ?>         
+                <?php foreach( $aside_articles as $post): ?>
+                  <aside class="aside-box m-20-bottom">
+                    <div class="pure-g">                      
+                    <?php setup_postdata($post); ?>
+                    <?php if ( has_post_thumbnail() ) :
+                      $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), medium );
+                      $style = 'style="background-image: url(
+                        ' . $image[0] . ')"';
+                    else :
+                      $style = 'style="background-image: url(
+                        http://placehold.it/200x200&text=Featured+Image)"';
+                    endif; ?>
+                    <div <?php echo $style ?> class="pure-u-1 aside-box__image"></div>      
+                    <a href="<?php the_permalink() ?>" class="pure-u-1 aside-box__content">
+                      <h5 class="aside-box__content__title"><?php echo the_title() ?></h5>
+                      <p class="aside-box__content__paragraph">
+                        <?php $excerpt = get_the_excerpt();
+                        if ($excerpt) {
+                          echo $excerpt;
+                        } else {
+                          echo 'Oh no!<br>Looks like this post does not have an excerpt, please go to this page and configure it.';
+                        } ?>          
+                      </p>
+                    </a>  
+                  </div>
+                </aside>                           
+                <?php endforeach; ?>
+              <?php wp_reset_postdata(); 
+            endif; ?>         
           </div>       
         </div>
       <?php endif; ?>
