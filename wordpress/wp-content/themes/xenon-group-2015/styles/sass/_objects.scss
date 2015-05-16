@@ -41,6 +41,11 @@
       text-align: left;
     }
   }
+  .lead-box--telephone {
+    @include font-size(42px);  
+    color: $base-font-color;
+    text-decoration: none;
+  }
 
 .introduction-box {
   position: relative;
@@ -151,9 +156,17 @@
       color: $base-ui-color;
     }  
   }  
+  @media screen and (max-width: $bp-md) {
+    .column-layout .next-steps-callout {
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+  }
+
+  
 .callout {
   margin-top: 10px;
-  padding: 1.25em 1.25em 2em 1.25em;
+  padding: 1.25em 1.25em 1.25em 1.25em;
   background-color: $base-ui-color;
   color: #fff;
 }
@@ -169,14 +182,33 @@
       margin: 10px 0 .25em 0;
       color: #fff;
   }
+  .callout__title--leading {
+    @include font-size(22px);    
+  }
   .callout__paragraph {
     @include font-size(12px);    
     margin: 0 0 .25em 0;
   }  
+  .callout__paragraph--leading {
+    @include font-size(16px);  
+    font-weight: 400;  
+  }
   .callout__form {
     
   }
 
+.callout-well {
+  border: 1px solid $base-font-color;
+  background-color: #fff;
+  color: $base-font-color;
+  .callout__title {
+    color: $base-ui-color;
+  }
+  a {
+    text-decoration: none;
+    display: inline-block;
+  }
+}
 
 .aside-box {
   margin-top: 10px;  
@@ -245,6 +277,9 @@
     .multi-box__single__image {
       min-height: 8em;
     }  
+    .multi-box__single__image--double {
+      min-height: 16em;
+    }
   }
 
   .multi-box__single--yellow {
@@ -517,6 +552,7 @@
 }
 .our-team-member-box--work-with-fm {
   display: inline-block;
+  width: 100%;
   background: {
     image: url('dist/images/work-with-fm-bg.jpg');
     size: cover;
@@ -543,7 +579,7 @@
     }
   }
   .our-team-member-box__wrap {
-    float: left;
+    //float: left;
     transition: all 400ms ease-out;
   }
   .our-team-member-box--is-open {

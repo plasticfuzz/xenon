@@ -37,7 +37,7 @@
       </div>  
       <?php if ( has_nav_menu( 'header-nav' ) ) : ?>       
         <nav class="pure-u-1 pure-u-lg-2-3 header__navigation">
-          <div class="header__navigation__content  js-header-nav">
+          <div class="header__navigation__content default-state  js-header-nav">
             <ul>
               <?php
                 wp_nav_menu(array(

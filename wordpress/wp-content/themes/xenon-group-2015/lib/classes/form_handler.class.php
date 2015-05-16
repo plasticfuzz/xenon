@@ -1,23 +1,43 @@
 <?php
 class form_handler {
   function hooks(){
-    add_action('wp_ajax_enquiry', array($this, 'handle_enquiry'));
-    add_action('wp_ajax_nopriv_enquiry', array($this, 'handle_enquiry'));
+    add_action('wp_ajax_contact', array($this, 'handle_contact'));
+    add_action('wp_ajax_nopriv_contact', array($this, 'handle_contact'));
     add_action('wp_ajax_newsletter', array($this, 'handle_newsletter'));
     add_action('wp_ajax_nopriv_newsletter', array($this, 'handle_newsletter'));
   }
 
-  function handle_enquiry() {
+  function handle_contact() {
     if( ! wp_verify_nonce( $_REQUEST['nonce'], 'xe' ) ){
       wp_send_json_error( array(
         'message' => 'Security Error'      
       ) );    
     }
 
-    wp_send_json_success( array(
-      'message' => 'AJAX Request Received - Enquiry',
-      'nonce'    => wp_create_nonce('xe'),
-    ) );
+    parse_str($_POST["data"], $_POST);
+
+    $email = trim($_POST['xe_contact_email']);
+    $name  = trim($_POST['xe_contact_name']);
+    $name  = trim($_POST['xe_contact_tel']);    
+
+    if( !empty($name) && !empty($email) ) {
+
+      if( 1 == 1 ) {
+        wp_send_json_error( array(
+          'message' => 'Transmission failed, try again'      
+        ) );           
+      } else {
+        wp_send_json_success( array(
+          'message' => 'Message sent',
+          'nonce'    => wp_create_nonce('xe'),
+        ) );         
+      }
+
+    } else {
+      wp_send_json_error( array(
+        'message' => 'Server Error, try again'      
+      ) );    
+    }
   }
 
   function handle_newsletter() {

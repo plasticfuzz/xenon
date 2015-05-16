@@ -14,7 +14,7 @@ form {
     }
   }
 
-  input[type='text'], input[type='email'] {
+  input[type='text'], input[type='email'], textarea {
     margin-top: 10px;
     text-indent: 10px;
     height: 38px;
@@ -31,6 +31,11 @@ form {
       border-color: $base-fail-color;
     }
   }
+  textarea {
+    padding-top: 7px;
+    text-indent: 7px;    
+    height: 5em;
+  }
   label.error {
     @include font-size(11px);
     margin-top: -1px;
@@ -42,6 +47,19 @@ form {
 
 .input--full-width {
   width: 100%;
+}
+
+@media screen and (min-width: $bp-md) {
+  .input--3-4-width--gt-md {
+    width: 75%;  
+  }
+  .input--center--gt-md {
+    display: inherit;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
 }
 
 .input--submit, .button-blue {

@@ -8,7 +8,7 @@
             <p class="multi-box__single__content__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
           </div>
         </a>              
-        <div class="pure-u-1 pure-u-md-1-2 multi-box__single__image multi-box__single__image--fixed"
+        <div class="pure-u-1 pure-u-md-1-2 multi-box__single__image multi-box__single__image--double multi-box__single__image--fixed"
         style="background-image: url(http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg)">
         </div>
       </div>

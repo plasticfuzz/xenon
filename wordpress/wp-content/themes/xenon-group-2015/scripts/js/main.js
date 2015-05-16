@@ -65,6 +65,7 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
       showHeaderNav: function(e) {
         e.preventDefault();  
         $(this).one('click', app.userInterface.hideHeaderNav);   
+        $('.js-header-nav').removeClass('default-state');       
         $('.js-header-nav').slideDown();
       },
 
@@ -151,7 +152,7 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
     },
 
     ajax: {
-      $forms: $('.js-enquiry-form, .js-newsletter-form'),
+      $forms: $('.js-contact-form, .js-newsletter-form'),
       $submitBtn: null,
       buttonText: null,
       loadingText: 'Please wait...',

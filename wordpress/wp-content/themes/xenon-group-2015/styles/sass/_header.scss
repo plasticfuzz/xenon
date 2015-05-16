@@ -87,6 +87,12 @@
       display: none;
     }
   }
+  @media (max-width: $bp-md) {
+    .default-state {
+      overflow: hidden;
+      height: 0;
+    }
+  }
 
   // @media (min-width: $bp-md) {
   //   .header__navigation__content {
