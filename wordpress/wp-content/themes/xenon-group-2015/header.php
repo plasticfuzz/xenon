@@ -35,7 +35,8 @@
         <a href="" class="icon-phone icon-lg header__operators__phone"></a>
         <a href="" class="icon-menu icon-xl header__operators__menu  js-toggle-header-nav"></a>
       </div>  
-      <?php if ( has_nav_menu( 'header-nav' ) ) : ?>       
+      <?php if ( has_nav_menu( 'header-nav' ) ) : 
+        $login_url = get_field('login_page', 'option'); ?>       
         <nav class="pure-u-1 pure-u-lg-2-3 header__navigation">
           <div class="header__navigation__content default-state  js-header-nav">
             <ul>
@@ -51,7 +52,9 @@
                   )
                 )
               ?>  
-              <li><a href="#" class="a-login">Login</a></li>        
+              <?php if ($login_url) : ?>
+                <li><a href="<?php echo $login_url; ?>" class="a-login">Login</a></li>        
+              <?php endif; ?>
             </ul>
           </div>
         </nav>
