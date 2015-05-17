@@ -130,7 +130,6 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
         div.addClass("active").siblings().removeClass("active");
 
         // update URL, no history addition
-        // You'd have this active in a real situation, but it causes issues in an <iframe> (like here on CodePen) in Firefox. So commenting out.
         // window.history.replaceState("", "", hash);
 
         // Close menu, in case mobile
@@ -232,6 +231,7 @@ include=function(){function f(){var a=this.readyState;(!a||/ded|te/.test(a))&&(c
       app.userInterface.matchHeight('.js-introduction-box');
       app.userInterface.matchHeight('.js-member-box');    
       app.userInterface.matchHeight('.js-tutor-box');
+      app.userInterface.matchHeight('.js-testimonial-box');
 
       // Team Member Box
       $('.our-team-member-box__wrap')

@@ -12,6 +12,9 @@ h1, h2, h3, h3, h4, h5 {
   text-align: center;
 }
 
+.icon-sm {
+  @include font-size(18px);
+}
 .icon-md {
   @include font-size(22px);
 }

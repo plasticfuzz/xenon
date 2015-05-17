@@ -162,16 +162,18 @@ get_header(); $Px = 'int_'; ?>
           <?php // Aside testimonials 
             if( $aside_testimonial ) :
               $post = $aside_testimonial;
+              $testimonials_url = get_field('testimonials_page', 'option');
               setup_postdata( $post ); $Sx = 'tes_'; ?>
-                <aside class="aside-box m-20-bottom">
-                  <div class="pure-u-1 aside-box__content">
-                    <p class="aside-box__content__paragraph">
-                    <?php
-                        the_field( ($Sx . 'body') );
-                        the_field( ($Sx . 'name') );
-                        the_field( ($Sx . 'title') );
-                        the_field( ($Sx . 'company') ); ?>        
+                <aside class="testimonial-box m-20-bottom">
+                  <div class="pure-u-1 testimonial-box__content">
+                    <p class="testimonial-box__content__paragraph">
+                      <?php the_field( ($Sx . 'body') ); ?>        
                     </p>
+                    <p class="testimonial-box__attr"><strong><?php the_field( ($Sx . 'name') ) ?></strong><br>
+                    <?php the_field( ($Sx . 'title') ) ?>, <?php the_field( ($Sx . 'company') ) ?></p>
+                    <?php if ($testimonials_url) : ?>
+                      <a class="testimonial-box__view-all" href="">View all testimonials <i class="icon-chevron-right icon-sm f-right"></i></a>
+                    <?php endif; ?>
                   </div>  
                 </aside>                           
               <?php wp_reset_postdata(); 
