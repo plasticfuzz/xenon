@@ -172,7 +172,7 @@ get_header(); $Px = 'int_'; ?>
                     <p class="testimonial-box__attr"><strong><?php the_field( ($Sx . 'name') ) ?></strong><br>
                     <?php the_field( ($Sx . 'title') ) ?>, <?php the_field( ($Sx . 'company') ) ?></p>
                     <?php if ($testimonials_url) : ?>
-                      <a class="testimonial-box__view-all" href="">View all testimonials <i class="icon-chevron-right icon-sm f-right"></i></a>
+                      <a class="testimonial-box__view-all" href="<?php echo get_the_permalink($testimonials_url) ?>">View all testimonials <i class="icon-chevron-right icon-sm f-right"></i></a>
                     <?php endif; ?>
                   </div>  
                 </aside>                           
