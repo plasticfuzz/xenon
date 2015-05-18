@@ -59,6 +59,7 @@ body {
       padding-left: 30px;
     }
   }
+
 .clearfix {
   &:after {
     content: "";
@@ -66,3 +67,7 @@ body {
     clear: both;
   }
 }  
+
+.text-gray, .text-gray > p {
+  color: $base-font-color;
+}
