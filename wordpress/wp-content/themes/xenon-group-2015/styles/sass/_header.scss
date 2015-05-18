@@ -14,12 +14,12 @@
       max-width: 100px;
     }
   }
+  // @media (min-width: $bp-md) {
+  //   .header__logo {
+  //     text-align: center;
+  //   }
+  // }  
   @media (min-width: $bp-md) {
-    .header__logo {
-      text-align: center;
-    }
-  }  
-  @media (min-width: $bp-lg) {
     .header__logo {
       text-align: left;
       img {
@@ -104,7 +104,7 @@
   //     }
   //   }
   // }  
-  @media (min-width: $bp-lg) {
+  @media (min-width: $bp-md) {
     .header__navigation__content {
       position: relative;
       ul {

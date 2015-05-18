@@ -24,7 +24,7 @@
 <body>
   <header class="header">
     <div class="pure-g wrapper-1140">
-      <div class="pure-u-1-2 pure-u-md-1 pure-u-lg-1-3 header__logo">
+      <div class="pure-u-1-2 pure-u-md-1-3 header__logo">
         <a title="<?php bloginfo('name') ;?>" 
             href="<?php echo bloginfo('url') ?>">
           <img src="<?php echo asset_uri(
@@ -37,7 +37,7 @@
       </div>  
       <?php if ( has_nav_menu( 'header-nav' ) ) : 
         $login_url = get_field('login_page', 'option'); ?>       
-        <nav class="pure-u-1 pure-u-lg-2-3 header__navigation">
+        <nav class="pure-u-1 pure-u-md-2-3 header__navigation">
           <div class="header__navigation__content default-state  js-header-nav">
             <ul>
               <?php
