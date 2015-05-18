@@ -32,7 +32,11 @@
         </a>
       </div>      
       <div class="pure-u-1-2 header__operators">
-        <a href="" class="icon-phone icon-lg header__operators__phone"></a>
+        <?php 
+        $tel = get_field('primary_telephone_number', 'option');
+        if ($tel) : ?>
+          <a href="tel:<?php echo preg_replace('/\s+/', '', $tel); ?>" class="icon-phone icon-lg header__operators__phone"></a>
+        <?php endif ?>      
         <a href="" class="icon-menu icon-xl header__operators__menu  js-toggle-header-nav"></a>
       </div>  
       <?php if ( has_nav_menu( 'header-nav' ) ) : 
