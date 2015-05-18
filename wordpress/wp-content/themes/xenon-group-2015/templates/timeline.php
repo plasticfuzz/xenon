@@ -31,7 +31,8 @@ get_header(); $Px = 'tl_'; ?>
       if ( have_rows( ($Px.'posts') ) ) : ?>
           <div class="pure-g wrapper-1140">
             <div class="pure-u-1">
-              <h2><?php the_field( ($Px.'title') ); ?></h2>
+              <h2 class="text-center-lt-md">
+              <?php the_field( ($Px.'title') ); ?></h2>
             </div>          
             <div class="pure-u-1">
               <div class="timeline">

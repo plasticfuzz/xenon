@@ -722,7 +722,7 @@
     background: $base-ui-color;
   }
 }
-  @media screen and (min-width: $bp-md) {
+  @media screen and (min-width: $bp-sm) {
     .timeline {
 
       &:before {
@@ -755,7 +755,7 @@
       }
     }
   }
-    @media screen and (min-width: $bp-md) {
+    @media screen and (min-width: $bp-sm) {
       .timeline__block__content {
         margin-left: 0;
         padding: .75em;
@@ -784,7 +784,7 @@
       color: $base-ui-color;
     }
   }
-    @media screen and (min-width: $bp-md) {
+    @media screen and (min-width: $bp-sm) {
       .timeline__block__date {
         width: 90px;
         height: 90px;
@@ -809,7 +809,7 @@
       background-color: $base-ui-color;
     }
   }  
-    @media screen and (min-width: $bp-md) {
+    @media screen and (min-width: $bp-sm) {
       .timeline__block__content.f-left, .timeline__block__content.f-right {
         &:before {
           content: '';
@@ -863,7 +863,7 @@
     }
   }    
 
-    @media screen and (min-width: $bp-md) {
+    @media screen and (min-width: $bp-sm) {
       .timeline__block__onwards {
         width: 100px;
         left: 50%;
