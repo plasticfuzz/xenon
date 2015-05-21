@@ -251,6 +251,42 @@
   app.ajax.init();
   app.userInterface.init();
 
+  $('.clients-slider').slick({
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: app.deviceLG,
+        settings: {
+          slidesToShow: 6
+        }
+      },    
+      {
+        breakpoint: app.deviceMD,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: app.deviceSM,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]    
+  });
+
+$('.next').click(function(e) {
+    e.preventDefault();
+    $('.clients-slider').slick('slickNext');
+});
+
+$('.prev').click(function(e) {
+    e.preventDefault();
+    $('.clients-slider').slick('slickPrev');
+});
+
 }(this, document));
 
 // Async load Google Fonts
