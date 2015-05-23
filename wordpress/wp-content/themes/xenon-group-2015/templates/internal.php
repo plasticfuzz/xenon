@@ -121,9 +121,14 @@ get_header(); $Px = 'int_'; ?>
               endif; ?>
               <ul class="key-point-list <?php echo ($vertical_list_title) ? '' : 'm-20-top' ?>">
                 <?php for ( $i = 1; have_rows( ($Px.'list') ); $i++ ) : 
-                the_row(); ?><li class="key-point-list__item"><p><?php echo 
-                get_sub_field( ($Px.'list_item_title') ); ?>
-                </p></li><?php endfor; ?> 
+                the_row(); ?><li class="key-point-list__item">
+                <a class="js-accordion-link" href="#">
+                  <?php echo get_sub_field( ($Px.'list_item_title') ); ?>
+                </a>
+                <div><p>
+                  <?php echo get_sub_field( ($Px.'list_item_title') ); ?></p>
+                </div>
+                </li><?php endfor; ?> 
               </ul>
             </div>
           <?php endif; ?>

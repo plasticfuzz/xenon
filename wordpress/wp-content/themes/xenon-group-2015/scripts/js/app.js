@@ -85,6 +85,23 @@
     //   }
     // },
 
+    accordion: {
+
+      $item: $('.js-accordion-link'),
+
+      init: function() {
+        app.accordion.bindUIfunctions();
+      },
+
+      bindUIfunctions: function() {
+        this.$item.on('click', function(e) {
+          $(this).next('div').slideToggle();
+          e.preventDefault();          
+        });
+      }
+
+    },
+
     tabs: {
 
       init: function() {
@@ -313,6 +330,7 @@
   }  
 
   app.userInterface.init();
+  app.accordion.init();  
   app.tabs.init();
   app.ajax.init();  
   app.sliders.init();

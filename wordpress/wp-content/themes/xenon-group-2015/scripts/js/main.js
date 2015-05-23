@@ -116,6 +116,23 @@ if(!(b.options.swipe===!1||"ontouchend"in document&&b.options.swipe===!1||b.opti
     //   }
     // },
 
+    accordion: {
+
+      $item: $('.js-accordion-link'),
+
+      init: function() {
+        app.accordion.bindUIfunctions();
+      },
+
+      bindUIfunctions: function() {
+        this.$item.on('click', function(e) {
+          $(this).next('div').slideToggle();
+          e.preventDefault();          
+        });
+      }
+
+    },
+
     tabs: {
 
       init: function() {
@@ -344,6 +361,7 @@ if(!(b.options.swipe===!1||"ontouchend"in document&&b.options.swipe===!1||b.opti
   }  
 
   app.userInterface.init();
+  app.accordion.init();  
   app.tabs.init();
   app.ajax.init();  
   app.sliders.init();
