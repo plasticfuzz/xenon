@@ -200,6 +200,71 @@
           console.log('Invalid AJAX action.');
         }
       }    
+    },
+
+    sliders: {
+
+      $clientsSlider: $('.clients-slider'),
+      $heroSlider: $('.hero-slider'),
+
+      init: function() {     
+
+        $('.js-client-slider-next').click(function(e) {
+            e.preventDefault();
+            app.sliders.$clientsSlider.slick('slickNext');
+        });
+
+        $('.js-client-slider-prev').click(function(e) {
+            e.preventDefault();
+            app.sliders.$clientsSlider.slick('slickPrev');
+        }); 
+
+        this.$clientsSlider.slick({
+          slidesToShow: 8,
+          slidesToScroll: 1,
+          arrows: false,
+          responsive: [
+            {
+              breakpoint: app.deviceLG,
+              settings: {
+                slidesToShow: 6
+              }
+            },    
+            {
+              breakpoint: app.deviceMD,
+              settings: {
+                slidesToShow: 4
+              }
+            },
+            {
+              breakpoint: app.deviceSM,
+              settings: {
+                slidesToShow: 2
+              }
+            }
+          ]    
+        });
+
+        this.$heroSlider.slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+          responsive: [
+            {
+              breakpoint: app.deviceMD,
+              settings: {
+                dots: false,
+                fade: true
+              }
+            }
+          ],              
+          customPaging: function(slick,index) {
+            return '<div></div>';
+          }
+        });        
+
+      }
     }
   };
 
@@ -247,45 +312,10 @@
     });
   }  
 
-  app.tabs.init();
-  app.ajax.init();
   app.userInterface.init();
-
-  $('.clients-slider').slick({
-    slidesToShow: 8,
-    slidesToScroll: 1,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: app.deviceLG,
-        settings: {
-          slidesToShow: 6
-        }
-      },    
-      {
-        breakpoint: app.deviceMD,
-        settings: {
-          slidesToShow: 4
-        }
-      },
-      {
-        breakpoint: app.deviceSM,
-        settings: {
-          slidesToShow: 2
-        }
-      }
-    ]    
-  });
-
-$('.next').click(function(e) {
-    e.preventDefault();
-    $('.clients-slider').slick('slickNext');
-});
-
-$('.prev').click(function(e) {
-    e.preventDefault();
-    $('.clients-slider').slick('slickPrev');
-});
+  app.tabs.init();
+  app.ajax.init();  
+  app.sliders.init();
 
 }(this, document));
 

@@ -3,8 +3,7 @@
   $multi_box_yellow = get_field('multi_box_yellow', 'option');
   $multi_box_red    = get_field('multi_box_red', 'option');
   $multi_box_green  = get_field('multi_box_green', 'option');
-  //$multi_box_blue && $multi_box_yellow && $multi_box_red && $multi_box_green
-  if ( 1 === 1 ) : ?>
+  if ( $multi_box_blue && $multi_box_yellow && $multi_box_red && $multi_box_green ) : ?>
 <div class="pure-g wrapper-1140">  
   <div class="pure-u-1 pure-u-lg-2-3">
     <div class="multi-box js-multi-box-container">

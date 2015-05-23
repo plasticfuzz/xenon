@@ -4,7 +4,7 @@
     }
 
     if ( get_field('enable_multiboxes_newsletter') ) { 
-      locate_template('templates/inc/multiboxes-newsletter.php', true);
+      locate_template('templates/inc/multi-boxes-newsletter.php', true);
     } ?>
 
   <footer class="footer">
