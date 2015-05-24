@@ -1,6 +1,8 @@
 <?php
   $tel = get_field('primary_telephone_number', 'option');
-  $login_url = get_field('login_page', 'option'); ?>        
+  $login_url = get_field('login_page', 'option'); 
+  $linkedin_url = get_field('linkedin_profile', 'option'); 
+  $twitter_url = get_field('twitter_profile', 'option'); ?>        
 <!doctype html>
 <!--[if lt IE 7 ]><html class="ie6" <?php language_attributes() ?>><![endif]-->
 <!--[if IE 7 ]>   <html class="ie7" <?php language_attributes() ?>><![endif]-->
@@ -30,13 +32,19 @@
       <div class="pure-u-1">
         <div class="header__external is-invisible--lt-md">
           <ul>
-            <li><a href="#" class="icon-linkedin-with-circle a-social"></a></li>
-            <li><a href="#" class="icon-twitter-with-circle a-social"></a></li>
+            <?php if ($linkedin_url) : ?>          
+              <li>
+              <a href="<?php echo $linkedin_url; ?>" class="icon-linkedin-with-circle a-social"></a></li>
+            <?php endif; ?>
+            <?php if ($twitter_url) : ?>          
+              <li>
+              <a href="<?php echo $twitter_url; ?>" class="icon-twitter-with-circle a-social"></a></li>
+            <?php endif; ?>
             <?php if ($tel) : ?>
               <li><a href="tel:<?php echo preg_replace('/\s+/', '', $tel); ?>" class="a-tel">
                 <?php echo $tel; ?>
               </a></li>
-            <?php endif ?>
+            <?php endif; ?>
             <?php if ($login_url) : ?>
               <li><a href="<?php echo $login_url; ?>" class="a-login">
               <i class="icon-login icon-xs"></i>
