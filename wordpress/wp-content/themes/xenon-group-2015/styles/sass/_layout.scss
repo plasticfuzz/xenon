@@ -47,11 +47,17 @@
   .has-hero-slider {
     margin-top: -115px;
   }
+  .has-hero-slider--kc {
+    margin-top: -140px;
+  }  
 }
 @media screen and (min-width: $bp-lg) {
   .has-hero-slider {
     margin-top: -135px;
   }
+  .has-hero-slider--kc {
+    margin-top: -190px;
+  }    
 }
 
 .m-10-top {

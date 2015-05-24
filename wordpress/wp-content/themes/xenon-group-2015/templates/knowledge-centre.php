@@ -1,23 +1,82 @@
 <?php
 /**
- * Template Name: Internal
+ * Template Name: Knowledge Centre
  */
 get_header(); $Px = 'int_'; ?>
-  <?php $banner_url = get_field( ($Px.'lead_banner') ); ?>
-  <div class="banner" <?php if($banner_url) echo 'style="background-image: url('. $banner_url['url'] . ')"' ?>>
-    <div class="pure-g wrapper-1140">
-      <div class="pure-u-1">
-        <h1 class="banner__title">
-          <?php if ( get_field('override_page_title') ) {
-            echo get_field('override_page_title');
-          } else { the_title(); } ?>
-        </h1>    
-      </div>  
-    </div>    
-  </div>
+<?php // Homepage - Hero Slider
+  if (have_rows( ($Px.'hero_slider') ) ) : ?>
+    <div class="hero-slider m-20-bottom">            
+      <?php for ( $i = 0; have_rows( ($Px.'hero_slider') ); $i++ ) : 
+        the_row(); 
+        $title = get_sub_field( ($Px.'hero_slider_title') ); 
+        $body  = get_sub_field( ($Px.'hero_slider_body') ); 
+        $image = get_sub_field( ($Px.'hero_slider_image') );
+
+        if ( $image ) :
+          $image = wp_get_attachment_image_src( $image, 'full' );
+          $style = 'style="background-image: url(
+            ' . $image[0] . ')"';
+        else :
+          $style = 'style="background-image: url(
+            http://placehold.it/300x150&text=Featured+Image)"';
+        endif; ?> 
+
+        <div <?php echo $style ?> class="hero-slider__image">
+          <div class="hero-slider__overlay"></div>        
+          <div class="pure-g wrapper-1140">
+            <div class="pure-u-1 pure-u-md-3-5 hero-slider__content">
+              <h1 class="hero-slider__content__title">
+                <?php echo $title ?>
+              </h1> 
+              <div class="hero-slider__content__body">
+                <?php echo $body ?>                               
+              </div>              
+            </div>
+          </div>
+        </div><?php
+      endfor; ?>
+    </div>                          
+  <?php endif; ?> 
 
   <main>
     <?php while(have_posts()): the_post() ?>
+
+      <div class="pure-g wrapper-1140 has-hero-slider--kc m-20-bottom">
+        <?php // Article Articles 
+          $article_archive = get_field( ($Px.'article_archive') );
+
+          if( $article_archive ): ?>
+            <?php foreach( $article_archive as $post): ?>
+              <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <div class="multi-box__single multi-box__single--flip multi-box__single--blue  js-aside-box">
+                  <?php if ( has_post_thumbnail() ) :
+                    $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
+                    $style = 'style="background-image: url(
+                      ' . $image[0] . ')"';
+                  else :
+                    $style = 'style="background-image: url(
+                      http://placehold.it/410x290&text=Featured+Image)"';
+                  endif; ?>               
+                  <div <?php echo $style ?> class="multi-box__single__image multi-box__single--flip__image">
+                  </div>
+                  <a href="<?php the_permalink() ?>" class="multi-box__single__content multi-box__single--flip__content">
+                    <h5 class="multi-box__single__content__title">
+                    <?php the_title() ?></h5>
+                    <p class="multi-box__single__content__paragraph">
+                    <?php $excerpt = get_the_excerpt();
+                    if ($excerpt) {
+                      echo $excerpt;
+                    } else {
+                      echo 'Oh no!<br>Looks like this post does not have an excerpt, please go to this page and configure it.';
+                    } ?>
+                    </p>
+                  </a>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php wp_reset_postdata(); 
+        endif; ?>         
+      </div>
 
       <?php
         $aside_testimonial = get_field( ($Px.'aside_testimonial') );
@@ -29,15 +88,6 @@ get_header(); $Px = 'int_'; ?>
         <div class="pure-g wrapper-1140 column-layout">
           <div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-4">
       <?php endif; ?>
-
-      <?php $lead_p = get_field( ($Px.'lead_paragraph') );
-      if ($lead_p) : ?>        
-        <div class="pure-g wrapper-1140">  
-          <?php // Internal - Leading  ?><div class="lead-box pure-u-1">
-            <?php echo $lead_p; ?>
-          </div>
-        </div><?php
-      endif; ?>
 
       <?php $introduction_callout = get_field( ($Px.'show_int') );
       if ($introduction_callout) : 
