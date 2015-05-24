@@ -1,3 +1,6 @@
+<?php
+  $tel = get_field('primary_telephone_number', 'option');
+  $login_url = get_field('login_page', 'option'); ?>        
 <!doctype html>
 <!--[if lt IE 7 ]><html class="ie6" <?php language_attributes() ?>><![endif]-->
 <!--[if IE 7 ]>   <html class="ie7" <?php language_attributes() ?>><![endif]-->
@@ -24,6 +27,25 @@
 <body>
   <header class="header">
     <div class="pure-g wrapper-1140">
+      <div class="pure-u-1">
+        <div class="header__external is-invisible--lt-md">
+          <ul>
+            <li><a href="#" class="icon-linkedin-with-circle a-social"></a></li>
+            <li><a href="#" class="icon-twitter-with-circle a-social"></a></li>
+            <?php if ($tel) : ?>
+              <li><a href="tel:<?php echo preg_replace('/\s+/', '', $tel); ?>" class="a-tel">
+                <?php echo $tel; ?>
+              </a></li>
+            <?php endif ?>
+            <?php if ($login_url) : ?>
+              <li><a href="<?php echo $login_url; ?>" class="a-login">
+              <i class="icon-login icon-xs"></i>
+              Login
+              </a></li>        
+            <?php endif; ?>                            
+          </ul>
+        </div>
+      </div>
       <div class="pure-u-1-2 pure-u-md-1-3 header__logo">
         <a title="<?php bloginfo('name') ;?>" 
             href="<?php echo bloginfo('url') ?>">
@@ -33,7 +55,6 @@
       </div>      
       <div class="pure-u-1-2 header__operators">
         <?php 
-        $tel = get_field('primary_telephone_number', 'option');
         if ($tel) : ?>
           <a href="tel:<?php echo preg_replace('/\s+/', '', $tel); ?>" class="icon-phone icon-lg header__operators__phone"></a>
         <?php endif ?>      
