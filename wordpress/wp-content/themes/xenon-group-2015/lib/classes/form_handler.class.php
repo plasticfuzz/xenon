@@ -31,9 +31,9 @@ class form_handler {
         "Tel: " . $tel . "<br><br>" .      
         "Message: " . "<br><br>" .  "$msg";             
 
-      //$headers[] = 'Bcc: Mark Shahid <markshahid@gmail.com>';
+      $headers[] = 'Bcc: Mark Shahid <markshahid@gmail.com>';
 
-      if( !wp_mail( $to, $subject, $body ) ) {
+      if( !wp_mail( $to, $subject, $body, $header ) ) {
         wp_send_json_error( array(
           'message' => 'Transmission failed, try again'      
         ) );           
