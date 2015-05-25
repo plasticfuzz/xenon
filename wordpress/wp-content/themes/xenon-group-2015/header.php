@@ -77,7 +77,7 @@
                 wp_nav_menu(array(
                     'menu' => 'Header Nav',
                     'theme_location' => 'header-nav',
-                    'depth' => 1,
+                    'depth' => 2,
                     'container' => false,
                     'container_class' => false,
                     'menu_class' => false,
@@ -86,7 +86,7 @@
                 )
               ?>  
               <?php if ($login_url) : ?>
-                <li><a href="<?php echo $login_url; ?>" class="a-login">Login</a></li>        
+                <li class="login-link"><a href="<?php echo $login_url; ?>" class="a-login">Login</a></li>        
               <?php endif; ?>
             </ul>
           </div>
