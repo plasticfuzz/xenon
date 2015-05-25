@@ -64,7 +64,7 @@
   //     text-align: center;
   //   }
   // }  
-  @media (min-width: $bp-md) {
+  @media (min-width: $bp-lg) {
     .header__logo {
       text-align: left;
       img {
@@ -83,7 +83,7 @@
       margin-left: .15em;
     }
   }
-  @media (min-width: $bp-md) {
+  @media (min-width: $bp-lg) {
     .header__operators {
       display: none;
     }
@@ -131,12 +131,7 @@
       color: white;
     }
   }
-  @media (min-width: $bp-md) {
-    .header__operators {
-      display: none;
-    }
-  }
-  @media (max-width: $bp-md) {
+  @media (max-width: $bp-lg) {
     .default-state {
       overflow: hidden;
       height: 0;
@@ -153,7 +148,7 @@
   //     }
   //   }
   // }  
-  @media (min-width: $bp-md) {
+  @media (min-width: $bp-lg) {
     .header__navigation__content {
       position: relative;
       ul {

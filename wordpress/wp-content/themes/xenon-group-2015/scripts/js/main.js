@@ -339,15 +339,17 @@ if(!(b.options.swipe===!1||"ontouchend"in document&&b.options.swipe===!1||b.opti
       $('.our-team-member-box__wrap')
         .css('margin-top', $('.js-member-box').outerHeight() - 70);
 
-      // Header Nav
-      $('.js-header-nav').slideDown();
-
       // XXX: Edge case
       $('.js-callout-container')
         .css('height', $('.js-multi-box-container').outerHeight() -10);
     }
 
-    if (screenWidth < app.deviceMD) {
+    if (screenWidth > app.deviceLG) {
+      // Header Nav
+      $('.js-header-nav').slideDown();
+    }
+
+    if (screenWidth < app.deviceLG) {
       // Header Mobile Nav
       $('.js-toggle-header-nav').one('click', app.userInterface.showHeaderNav);
       $('.js-header-nav').slideUp();
