@@ -158,7 +158,7 @@ get_header(); $Px = 'hp_'; ?>
                       </div>
                     </a>
                     <?php if ( has_post_thumbnail() ) :
-                      $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
+                      $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
                       $style = 'style="background-image: url(
                         ' . $image[0] . ')"';
                     else :

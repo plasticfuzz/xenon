@@ -16,7 +16,7 @@
         </a>
         <?php if ( has_post_thumbnail($timeline_url) ) :
           $image = wp_get_attachment_image_src( get_post_thumbnail_id(
-            $timeline_url), medium );
+            $timeline_url), 'large' );
           $style = 'style="background-image: url(
             ' . $image[0] . ')"';
         else :

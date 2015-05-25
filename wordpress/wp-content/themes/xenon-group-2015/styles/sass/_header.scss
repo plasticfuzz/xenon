@@ -190,6 +190,7 @@
             display: block;
             padding: .75em .9em;            
             background: none;
+            white-space: nowrap;            
             &:hover {
               background-color: darken(#fff, 10%);
             }
