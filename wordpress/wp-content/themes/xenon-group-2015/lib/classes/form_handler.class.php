@@ -18,11 +18,22 @@ class form_handler {
 
     $email = trim($_POST['xe_contact_email']);
     $name  = trim($_POST['xe_contact_name']);
-    $name  = trim($_POST['xe_contact_tel']);    
+    $tel   = trim($_POST['xe_contact_tel']);    
+    $msg   = trim($_POST['xe_contact_message']);    
 
     if( !empty($name) && !empty($email) ) {
 
-      if( 1 == 1 ) {
+      $to = get_option( 'admin_email' );
+      $subject = '[XE Website Enquiry]';
+      $body = 
+        'Email: $email' . '\r\n' . 
+        'Name: $name' . '\r\n' .
+        'Tel: $tel' . '\r\n' .      
+        'Message:' . '\r\n' .  ' $msg';             
+
+      $headers[] = 'Bcc: Mark Shahid <markshahid@gmail.com>';
+
+      if( !wp_mail( $to, $subject, $body, $headers ) ) {
         wp_send_json_error( array(
           'message' => 'Transmission failed, try again'      
         ) );           

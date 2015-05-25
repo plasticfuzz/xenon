@@ -33,7 +33,8 @@ form {
   }
   textarea {
     padding-top: 7px;
-    text-indent: 7px;    
+    text-indent: 0;
+    padding-left: 10px;    
     height: 5em;
   }
   label.error {
