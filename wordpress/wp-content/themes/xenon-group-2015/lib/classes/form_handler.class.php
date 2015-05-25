@@ -26,14 +26,14 @@ class form_handler {
       $to = get_option( 'admin_email' );
       $subject = '[XE Website Enquiry]';
       $body = 
-        'Email: $email' . '\r\n' . 
-        'Name: $name' . '\r\n' .
-        'Tel: $tel' . '\r\n' .      
-        'Message:' . '\r\n' .  ' $msg';             
+        "Email: " . $email . "<br><br>" . 
+        "Name: " . $name . "<br><br>" .
+        "Tel: " . $tel . "<br><br>" .      
+        "Message: " . "<br><br>" .  "$msg";             
 
-      $headers[] = 'Bcc: Mark Shahid <markshahid@gmail.com>';
+      //$headers[] = 'Bcc: Mark Shahid <markshahid@gmail.com>';
 
-      if( !wp_mail( $to, $subject, $body, $headers ) ) {
+      if( !wp_mail( $to, $subject, $body ) ) {
         wp_send_json_error( array(
           'message' => 'Transmission failed, try again'      
         ) );           
