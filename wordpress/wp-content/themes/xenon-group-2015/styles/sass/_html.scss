@@ -18,6 +18,10 @@ html{
         bottom: 15px;
       }
   }
+  p a {
+    color: $base-ui-color;
+    text-decoration: none;
+  }
   a {
     color: $base-font-color;
   }

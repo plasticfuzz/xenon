@@ -37,8 +37,10 @@
       </div>
     </div>
   </footer>
-
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVPzcXCF0c4scakHtJaUh-6V4CzRaTyek">
+  </script>
   <?php wp_footer() ?>
-  <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>  
+  <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>
   </body>
 </html>

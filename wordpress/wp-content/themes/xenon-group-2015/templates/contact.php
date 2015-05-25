@@ -46,7 +46,7 @@ get_header(); $Px = 'co_'; ?>
             <?php for ( $i = 0; have_rows( ($Px.'locations') ); $i++ ) : the_row(); ?>
               <div class="callout callout-well">
                 <div class="pure-g">
-                  <div class="pure-u-1 pure-u-lg-1-2">
+                  <div class="pure-u-1 pure-u-md-1-2">
                     <h2 class="callout__title callout__title--leading"><?php the_sub_field( ($Px.'location_title') ) ?></h2>
                     <p class="callout__paragraph callout__paragraph--leading m-20-top">
                       <?php the_sub_field( ($Px.'location_address') ) ?>
@@ -56,8 +56,11 @@ get_header(); $Px = 'co_'; ?>
                       Tel: <?php echo $tel; ?>
                     </a>
                   </div>
-                  <div class="pure-u-1 pure-u-lg-1-2">
-                    
+                  <div class="pure-u-1 pure-u-md-1-2 gmap-wrap">
+                    <?php $loc = get_sub_field( ($Px.'location_map') ); ?>
+                    <div style="width:100%;height:100%" class="gmap" 
+                      data-lat="<?php echo $loc['lat'] ?>" 
+                      data-lng="<?php echo $loc['lng'] ?>"></div>
                   </div>              
                 </div>
               </div><?php 
