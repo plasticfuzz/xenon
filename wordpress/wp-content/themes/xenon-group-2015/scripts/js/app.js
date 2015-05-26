@@ -321,7 +321,7 @@
     if (screenWidth < app.deviceLG) {
       // Header Mobile Nav
       $('.js-toggle-header-nav').one('click', app.userInterface.showHeaderNav);
-      $('.js-header-nav').slideUp();
+      //$('.js-header-nav').slideUp();
     }
   });
 

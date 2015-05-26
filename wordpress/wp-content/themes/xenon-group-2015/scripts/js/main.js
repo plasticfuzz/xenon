@@ -352,7 +352,7 @@ if(!(b.options.swipe===!1||"ontouchend"in document&&b.options.swipe===!1||b.opti
     if (screenWidth < app.deviceLG) {
       // Header Mobile Nav
       $('.js-toggle-header-nav').one('click', app.userInterface.showHeaderNav);
-      $('.js-header-nav').slideUp();
+      //$('.js-header-nav').slideUp();
     }
   });
 
