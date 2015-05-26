@@ -13,7 +13,7 @@ get_header(); $Px = 'hp_'; ?>
         $image = get_sub_field( ($Px.'hero_slider_image') );
 
         if ( $image ) :
-          $image = wp_get_attachment_image_src( $image, 'full' );
+          $image = wp_get_attachment_image_src( $image, 'large' );
           $style = 'style="background-image: url(
             ' . $image[0] . ')"';
         else :
