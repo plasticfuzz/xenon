@@ -131,7 +131,7 @@
       color: white;
     }
   }
-  @media (max-width: $bp-lg) {
+  @media (max-width: $bp-lt-lg) {
     .default-state {
       overflow: hidden;
       height: 0;
