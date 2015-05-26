@@ -384,55 +384,55 @@ var WebFontConfig = {
   s.parentNode.insertBefore(wf, s);
 })();
 
-function g_init() {
+// function g_init() {
 
-  var styles = 
-    [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}];
+//   var styles = 
+//     [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}];
 
-  $('.gmap').each(function (index, Element) {
-    var lat = $(Element).data('lat'),
-        lng = $(Element).data('lng');
+//   $('.gmap').each(function (index, Element) {
+//     var lat = $(Element).data('lat'),
+//         lng = $(Element).data('lng');
 
-    var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng)); 
+//     var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng)); 
 
-    var styledMap = new google.maps.StyledMapType(styles,
-      {name: "Styled Map"});
+//     var styledMap = new google.maps.StyledMapType(styles,
+//       {name: "Styled Map"});
 
-    var myOptions = {
-      zoom: 15,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      disableDefaultUI: false,
-      mapTypeControl: false,
-      streetViewControl: false,
-      zoomControl: true,
-      zoomControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style'],
-        style: google.maps.ZoomControlStyle.SMALL
-      }
-    };
+//     var myOptions = {
+//       zoom: 15,
+//       center: latlng,
+//       mapTypeId: google.maps.MapTypeId.ROADMAP,
+//       disableDefaultUI: false,
+//       mapTypeControl: false,
+//       streetViewControl: false,
+//       zoomControl: true,
+//       zoomControlOptions: {
+//         mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style'],
+//         style: google.maps.ZoomControlStyle.SMALL
+//       }
+//     };
 
-    var map = new google.maps.Map(Element, myOptions);
+//     var map = new google.maps.Map(Element, myOptions);
 
-    map.mapTypes.set('map_style', styledMap);
-    map.setMapTypeId('map_style');      
+//     map.mapTypes.set('map_style', styledMap);
+//     map.setMapTypeId('map_style');      
 
-    var pinColor = "868686";
-    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-        new google.maps.Size(21, 34),
-        new google.maps.Point(0,0),
-        new google.maps.Point(10, 34));
-    var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
-        new google.maps.Size(40, 37),
-        new google.maps.Point(0, 0),
-        new google.maps.Point(12, 35));
+//     var pinColor = "868686";
+//     var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+//         new google.maps.Size(21, 34),
+//         new google.maps.Point(0,0),
+//         new google.maps.Point(10, 34));
+//     var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+//         new google.maps.Size(40, 37),
+//         new google.maps.Point(0, 0),
+//         new google.maps.Point(12, 35));
 
-    var marker = new google.maps.Marker({
-      position: latlng,
-      map: map,
-      icon: pinImage,
-      shadow: pinShadow
-    });
-  });
-}
-google.maps.event.addDomListener(window, "load", g_init);
+//     var marker = new google.maps.Marker({
+//       position: latlng,
+//       map: map,
+//       icon: pinImage,
+//       shadow: pinShadow
+//     });
+//   });
+// }
+// google.maps.event.addDomListener(window, "load", g_init);
