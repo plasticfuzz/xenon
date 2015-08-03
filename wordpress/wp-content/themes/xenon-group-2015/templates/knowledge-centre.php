@@ -86,7 +86,7 @@ get_header(); $Px = 'int_'; ?>
       <?php // Boolean based on if [aside] has content.
       if( $column_layout ) : ?>
         <div class="pure-g wrapper-1140 column-layout">
-          <div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-4">
+          <div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5">
       <?php endif; ?>
 
       <?php $introduction_callout = get_field( ($Px.'show_int') );
@@ -213,7 +213,7 @@ get_header(); $Px = 'int_'; ?>
       <?php // Boolean based on if [aside] has content.
       if( $column_layout ) : ?>      
         </div>
-        <div class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-4 aside-column">   
+        <div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 aside-column">   
           <?php // Aside testimonials 
             if( $aside_testimonial ) :
               $post = $aside_testimonial;

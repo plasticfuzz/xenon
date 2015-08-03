@@ -8,22 +8,23 @@
     repeat: no-repeat;    
     position-x: center;
   }
-  height: 12em;
+  height: 14em;
 }
   .banner__title {
-    @include font-size(22px);
+    @include font-size(26px);
     position: absolute;
     text-transform: uppercase;    
     color: #fff;
-    font-weight: 700;
+    font-weight: 100;
   }
   @media screen and (min-width: $bp-md) {
     .banner__title {
       position: absolute;
       padding-bottom: .5em;
       border-bottom: 1px solid #fff;
-      top: 2.75em;
-      left: .5em;      
+      top: 2em;
+      left: .5em;   
+      width: 30%;   
     }  
   }  
 
@@ -33,7 +34,8 @@
   text-align: center;
   background-color: white;
   color: $base-ui-color;
-  margin-bottom: 1.5em;    
+  margin-bottom: 0;    
+  font-style: italic;
 }
   // Layout based control;
   @media screen and (min-width: $bp-md) {
@@ -148,6 +150,8 @@
       background-color: #fff; 
       text-align: left;
       margin: 0;
+      padding: 1em 2em;
+      border: 1px $base-ui-color solid;
     }
     .column-layout .next-steps-callout__content {
       color: $base-font-color;
@@ -236,7 +240,7 @@
     }   
   }  
   .aside-box__content {
-    text-align: center;
+    text-align: left;
     z-index: 10;
     position: relative;
     color: #fff;
@@ -1070,7 +1074,7 @@
   }
 .hero-slider__overlay {
   position: absolute;
-  background-color: rgba($base-ui-color, .92);
+  // background-color: rgba($base-ui-color, .92);
   width: 100%;
   height: 100%;
 }  
