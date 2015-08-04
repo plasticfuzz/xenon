@@ -5,15 +5,17 @@
 get_header(); $Px = 'int_'; ?>
   <?php $banner_url = get_field( ($Px.'lead_banner') ); ?>
   <div class="banner" <?php if($banner_url) echo 'style="background-image: url('. $banner_url['url'] . ')"' ?>>
-    <div class="pure-g wrapper-1140">
-      <div class="pure-u-1">
-        <h1 class="banner__title">
-          <?php if ( get_field('override_page_title') ) {
-            echo get_field('override_page_title');
-          } else { the_title(); } ?>
-        </h1>    
-      </div>  
-    </div>    
+    <div class="banner___decoration">
+    </div>
+      <div class="pure-g wrapper-1140">
+        <div class="pure-u-1">
+          <h1 class="banner__title">
+            <?php if ( get_field('override_page_title') ) {
+              echo get_field('override_page_title');
+            } else { the_title(); } ?>
+          </h1>    
+        </div>  
+      </div>    
   </div>
 
   <main>

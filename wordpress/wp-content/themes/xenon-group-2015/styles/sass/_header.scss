@@ -159,15 +159,15 @@
         display: inline-block;
         margin-left: 1em;
         border-top: 0;
-        &.current-menu-item > a:before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          left: 0;
-          background: $base-ui-color;
-          visibility: visible;   
-          transform: ScaleX(1);
-        }    
+        // &.current-menu-item > a:before {
+        //   content: "";
+        //   position: absolute;
+        //   width: 100%;
+        //   left: 0;
+        //   background: $base-ui-color;
+        //   visibility: visible;   
+        //   transform: ScaleX(1);
+        // }    
         &.current-menu-item > a:hover:before {
           opacity: 0.5;
         }      
@@ -183,12 +183,11 @@
           margin-top: 0;
           left: 0;
           padding-top: 2em;
-          max-width: 16em;
+          width: 16em;
           a {
             display: block;
             padding: .75em .9em;            
             background: none;
-            white-space: nowrap;            
             &:hover {
               background-color: darken(#fff, 10%);
             }
@@ -226,7 +225,6 @@
           background: $base-ui-color;
           visibility: hidden;
           transform: scaleX(0);
-          transition: all 0.2s ease-in-out 0s;
         }
         &:hover:before {
           visibility: visible;

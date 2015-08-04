@@ -1,15 +1,15 @@
 <?php
 get_header(); ?>
   <div class="banner">
-    <div class="pure-g wrapper-1140">
-      <div class="pure-u-1">
-        <h1 class="banner__title">
-          <?php if ( get_field('override_page_title') ) {
-            echo get_field('override_page_title');
-          } else { the_title(); } ?>
-        </h1>    
-      </div>  
-    </div>    
+      <div class="pure-g wrapper-1140">
+        <div class="pure-u-1">
+          <h1 class="banner__title">
+            <?php if ( get_field('override_page_title') ) {
+              echo get_field('override_page_title');
+            } else { the_title(); } ?>
+          </h1>    
+        </div>  
+      </div>       
   </div>
 
   <main>
