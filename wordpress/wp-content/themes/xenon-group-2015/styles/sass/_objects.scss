@@ -19,10 +19,11 @@
     font-weight: 100;
   }
   .banner___decoration {
-    background-color: rgba($base-ui-color, .85);
-    width: 50%;
-    height: 100em;
-    transform: rotate(-10deg) translateY(-25em);
+    position: absolute;
+    width: 47%;
+    height: 14em;
+    border-right: 5em solid rgba(0, 0, 0, 0);
+    border-bottom: 14em solid rgba($base-ui-color, .85);
   }
   @media screen and (min-width: $bp-md) {
     .banner__title {
