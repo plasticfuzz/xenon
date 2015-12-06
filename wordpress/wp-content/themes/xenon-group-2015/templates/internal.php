@@ -48,11 +48,11 @@ get_header(); $Px = 'int_'; ?>
           <div class="introduction-box__overlay"></div>
           <div class="introduction-box__content pure-g wrapper-1080">
             <?php // Internal - Introduction Callout ?>
-            <div class="pure-u-1 pure-u-md-1-2 introduction-box__content__wrap js-introduction-box">
-              <h2 class="introduction-box__content__title"><i class="icon-video icon-lg"></i><?php echo get_field( ($Px.'int_vid_title') ); ?></h2>
+            <div class="pure-u-1 introduction-box__content__wrap js-introduction-box">
+              <h2 class="introduction-box__content__title"><?php echo get_field( ($Px.'int_vid_title') ); ?></h2>
               <?php echo get_field( ($Px.'int_vid_paragraph') ); ?>
             </div>
-            <div class="introduction-box__content__video pure-u-1 pure-u-sm-1-2 pure-u-md-1-2">
+            <div class="introduction-box__content__video pure-u-1">
               <?php
               $iframe = get_field( ($Px.'int_vid_embed') );
               preg_match('/src="(.+?)"/', $iframe, $matches);
@@ -118,7 +118,7 @@ get_header(); $Px = 'int_'; ?>
             </div>
           <?php endif;
           if ( $vertical_list && have_rows( ($Px.'list') ) ) : ?>
-            <div class="pure-u-1 pure-u-lg-1-2 <?php echo ($below_tab_content_primary) ? 'key-point-list__container' : '' ?>"><?php if ($vertical_list_title) : ?>
+            <div class="pure-u-1 pure-u-lg-1 <?php echo ($below_tab_content_primary) ? 'key-point-list__container' : '' ?>"><?php if ($vertical_list_title) : ?>
                 <h4><?php echo $vertical_list_title ?></h4><?php 
               endif; ?>
               <ul class="key-point-list <?php echo ($vertical_list_title) ? '' : 'm-20-top' ?>">

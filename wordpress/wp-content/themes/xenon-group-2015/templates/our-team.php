@@ -49,7 +49,14 @@ get_header(); $Px = 'our_team_'; $Sx = 'team_mem_'; $Tx = 'tut_'; ?>
                     <i class="icon-chevron-up icon-xl is-invisible--lt-sm  js-members-box-title-icon"></i>
                   </h6>  
                   <div class="our-team-member-box__content">
-                    <img src="http://placehold.it/480x300" alt="">            
+                    <?php 
+                      $portrait_image_array = get_field( ($Sx.'portrait') );
+                      $portrait_image = get_sub_field( ($Sx.'portrait') );
+                      if ($portrait_image_array) : ?>         
+                        <img src="<?php echo $portrait_image_array['url'] ;?>" alt=""> 
+  
+                        <?php 
+                      endif; ?>         
                     <?php echo get_field( ($Sx.'bio') ) ?>               
                   </div> 
                 </div>         

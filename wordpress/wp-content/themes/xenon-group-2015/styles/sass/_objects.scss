@@ -7,6 +7,7 @@
     image: url('dist/images/default-banner.jpg');
     repeat: no-repeat;    
     position-x: center;
+    size: cover;
   }
   overflow: hidden;
   height: 14em;
@@ -521,7 +522,7 @@
       border-right: 2px solid #fff;
     }
     a {
-      padding: 1em 1.5em
+      padding: 1em 0.7em
     }
   }
 }
@@ -1095,6 +1096,7 @@
   position: relative;
 }
 .gmap {
+  
   min-height: 150px;
   max-height: 200px;
 }

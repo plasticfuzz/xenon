@@ -108,11 +108,13 @@ get_header(); $Px = 'int_'; ?>
               $params = array(
                 'controls'    => 0,
                 'hd'        => 1,
-                'autohide'    => 1
+                'autohide'   => 1,
+                'height' => 390,
+                'width' => 640
               );
               $new_src = add_query_arg($params, $src);
               $iframe = str_replace($src, $new_src, $iframe);
-              $attributes = 'frameborder="0" class="js-introduction-box"';
+              $attributes = 'width="640" height="390" frameborder="0" class="js-introduction-box"';
               $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
 
               echo $iframe; ?>        
@@ -166,7 +168,7 @@ get_header(); $Px = 'int_'; ?>
             </div>
           <?php endif;
           if ( $vertical_list && have_rows( ($Px.'list') ) ) : ?>
-            <div class="pure-u-1 pure-u-lg-1-2 <?php echo ($below_tab_content_primary) ? 'key-point-list__container' : '' ?>"><?php if ($vertical_list_title) : ?>
+            <div class="pure-u-1 pure-u-lg-1 <?php echo ($below_tab_content_primary) ? 'key-point-list__container' : '' ?>"><?php if ($vertical_list_title) : ?>
                 <h4><?php echo $vertical_list_title ?></h4><?php 
               endif; ?>
               <ul class="key-point-list <?php echo ($vertical_list_title) ? '' : 'm-20-top' ?>">
