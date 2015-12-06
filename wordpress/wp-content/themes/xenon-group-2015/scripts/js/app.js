@@ -299,7 +299,7 @@
 
       app.userInterface.matchHeight('.js-multi-box');
       app.userInterface.matchHeight('.js-aside-box');
-      app.userInterface.matchHeight('.js-introduction-box');
+      // app.userInterface.matchHeight('.js-introduction-box');
       app.userInterface.matchHeight('.js-member-box');    
       app.userInterface.matchHeight('.js-tutor-box');
       app.userInterface.matchHeight('.js-testimonial-box');

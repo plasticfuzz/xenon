@@ -48,24 +48,24 @@ get_header(); $Px = 'int_'; ?>
           <div class="introduction-box__overlay"></div>
           <div class="introduction-box__content pure-g wrapper-1080">
             <?php // Internal - Introduction Callout ?>
-            <div class="pure-u-1 pure-u-md-1-2 introduction-box__content__wrap js-introduction-box">
-              <h2 class="introduction-box__content__title"><i class="icon-video icon-lg"></i><?php echo get_field( ($Px.'int_vid_title') ); ?></h2>
+            <div class="pure-u-1 introduction-box__content__wrap js-introduction-box">
+              <h2 class="introduction-box__content__title"><?php echo get_field( ($Px.'int_vid_title') ); ?></h2>
               <?php echo get_field( ($Px.'int_vid_paragraph') ); ?>
             </div>
-            <div class="introduction-box__content__video pure-u-1 pure-u-sm-1-2 pure-u-md-1-2">
+            <div class="introduction-box__content__video pure-u-1">
               <?php
               $iframe = get_field( ($Px.'int_vid_embed') );
               preg_match('/src="(.+?)"/', $iframe, $matches);
               $src = $matches[1];
               $params = array(
-                'controls'    => 0,
+                'controls'    => 1,
                 'hd'        => 1,
                 'autohide'    => 1
               );
               $new_src = add_query_arg($params, $src);
               $iframe = str_replace($src, $new_src, $iframe);
               $attributes = 'frameborder="0" class="js-introduction-box"';
-              $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+              $iframe = str_replace('></iframe>', ' style="width: 100%; height: 400px" ' . $attributes . '></iframe>', $iframe);
 
               echo $iframe; ?>        
             </div>        
@@ -89,9 +89,10 @@ get_header(); $Px = 'int_'; ?>
               <ul><?php 
                 for ( $i = 0; have_rows( ($Px.'tabs') ); $i++ ) : the_row(); ?>
                   <li>
-    <a href="#<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" 
-       class="<?php echo ($i === 0) ? 'active' : ''; ?>">
-       <?php echo get_sub_field( ($Px.'tab_title') ); ?></a>
+                    <a href="#<?php echo make_slug( get_sub_field( ($Px.'tab_title') ) ); ?>" 
+                       class="<?php echo ($i === 0) ? 'active' : ''; ?>">
+                       <?php echo get_sub_field( ($Px.'tab_title') ); ?>
+                     </a>
                   </li>
                 <?php endfor; ?> 
               </ul>
@@ -118,7 +119,7 @@ get_header(); $Px = 'int_'; ?>
             </div>
           <?php endif;
           if ( $vertical_list && have_rows( ($Px.'list') ) ) : ?>
-            <div class="pure-u-1 pure-u-lg-1-2 <?php echo ($below_tab_content_primary) ? 'key-point-list__container' : '' ?>"><?php if ($vertical_list_title) : ?>
+            <div class="pure-u-1 pure-u-lg-1 <?php echo ($below_tab_content_primary) ? 'key-point-list__container' : '' ?>"><?php if ($vertical_list_title) : ?>
                 <h4><?php echo $vertical_list_title ?></h4><?php 
               endif; ?>
               <ul class="key-point-list <?php echo ($vertical_list_title) ? '' : 'm-20-top' ?>">

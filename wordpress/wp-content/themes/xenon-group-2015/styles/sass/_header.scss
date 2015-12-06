@@ -189,7 +189,8 @@
             padding: .75em .9em;            
             background: none;
             &:hover {
-              background-color: darken(#fff, 10%);
+              background-color: $base-ui-color;
+              color: white;
             }
             &:before {
               height: 0;

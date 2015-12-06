@@ -12,9 +12,10 @@ h2 {
   text-transform: capitalize
 }
 
-.text-center {
+.text-center, .aligncenter {
   text-align: center;
 }
+
 @media screen and (max-width: $bp-lt-md) {
   .text-center-lt-md {
     text-align: center;

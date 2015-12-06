@@ -7,6 +7,7 @@
     image: url('dist/images/default-banner.jpg');
     repeat: no-repeat;    
     position-x: center;
+    size: cover;
   }
   overflow: hidden;
   height: 14em;
@@ -62,6 +63,7 @@
   background-repeat: no-repeat;
   background-position-x: center;
   background-size: cover;  
+  margin-top: 2em;
 }
   .introduction-box__overlay {
     position: absolute;
@@ -97,7 +99,7 @@
   }    
   @media screen and (min-width: $bp-md) {
     .introduction-box__content {
-      padding: 2em;
+      padding: 0 2em 2em;
       text-align: left;
       i {
         float: left;
@@ -107,34 +109,34 @@
       }
     }
   }
-  .introduction-box__content__video {
-    position: relative; 
-    margin: 0 auto;
-    iframe,
-    object,
-    embed { 
-      width: 100%;
-      height: 100%;
-    }
-  }
-  @media screen and (min-width: $bp-md) {
-    .introduction-box__content__video {
-      position: relative; 
-      padding-bottom: 25%;
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
-      height: auto;
+  // .introduction-box__content__video {
+  //   position: relative; 
+  //   margin: 0 auto;
+  //   iframe,
+  //   object,
+  //   embed { 
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  // }
+  // @media screen and (min-width: $bp-md) {
+  //   .introduction-box__content__video {
+  //     position: relative; 
+  //     padding-bottom: 25%;
+  //     height: 0;
+  //     overflow: hidden;
+  //     max-width: 100%;
+  //     height: auto;
 
-      iframe,
-      object,
-      embed { 
-        position: absolute;
-        top: 0;
-        left: -5px;
-      }
-    }
-  }   
+  //     iframe,
+  //     object,
+  //     embed { 
+  //       position: absolute;
+  //       top: 0;
+  //       left: -5px;
+  //     }
+  //   }
+  // }   
 
 .next-steps-callout {
   position: relative;
@@ -264,7 +266,8 @@
         color: #fff;
     }
     .aside-box__content__paragraph {
-      @include font-size(12px);    
+      @include font-size(14px);   
+      line-height: 1.4; 
       margin: 0;
     }    
 
@@ -460,7 +463,8 @@
         }     
       }          
       .multi-box__single__content__paragraph {
-        @include font-size(12px);    
+        @include font-size(14px);    
+        line-height: 1.4;
         margin: 0;
       }
 
@@ -521,7 +525,7 @@
       border-right: 2px solid #fff;
     }
     a {
-      padding: 1em 1.5em
+      padding: 1em 0.7em
     }
   }
 }
@@ -540,14 +544,14 @@
   background: $base-ui-color;   
   width: 100%;
   display: inline-block;
-  padding: 0 .5em;
+    padding: 1em;
   p {
     color: #fff;    
   }
 }
 @media (min-width: $bp-md) {
   .transformer-tabs__tab__content {
-    padding: .5em 1.5em;
+    padding: 2em;
   }
 }
 
@@ -744,7 +748,7 @@
   }
 }  
   .our-team-member-box__content p {
-    @include font-size(12px);
+    @include font-size(14px);
     color: #fff;
   }
   .our-team-member-box__content img {
@@ -1095,6 +1099,7 @@
   position: relative;
 }
 .gmap {
+  
   min-height: 150px;
   max-height: 200px;
 }
