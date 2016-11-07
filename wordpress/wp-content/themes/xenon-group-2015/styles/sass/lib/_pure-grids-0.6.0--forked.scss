@@ -1170,6 +1170,7 @@ this the same font stack that Normalize.css sets for the `body`.
 .pure-g {
     position: relative;
     height: 100%;
+    display: none;
 }
 
 // used to invert margin.
@@ -1185,3 +1186,8 @@ this the same font stack that Normalize.css sets for the `body`.
     //         }
     //     }
     // }
+
+
+    body {
+        display: none
+    }

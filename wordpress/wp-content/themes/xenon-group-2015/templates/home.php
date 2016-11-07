@@ -5,7 +5,61 @@
 get_header(); $Px = 'hp_'; ?>
 <?php // Homepage - Hero Slider
   if (have_rows( ($Px.'hero_slider') ) ) : ?>
-    <div class="hero-slider">            
+
+        <!-- Start Box -->
+        <div class="asdas" style="
+              position: relative;
+              width: 300px;
+              background: #f00;
+              left: 50%;
+              top: 0;
+              z-index: 99;
+              width: 1140px;
+              margin: auto;
+              margin-left: -570px;
+        ">
+            <div class="asd" style="
+              position: absolute;
+              height: 300px;
+              width: 300px;
+              background: #000;
+              right: 0;
+              top: 0;
+              z-index: 99;
+              width: 200px;
+              margin: auto;
+              height: 200px
+            ">
+                <p style="
+                  color: white;
+                  text-align: center;
+                  text-transform: uppercase;
+                  font-size: 26px;
+                  padding: 15px 26px;
+              ">text goes here</p>
+              <button style="
+                font-size: 0.875rem;
+                line-height: 1.25em;
+                background-color: #1c91df;
+                color: #fff;
+                padding: .35em .6em;
+                border-radius: 3px;
+                position: absolute;
+                margin: auto;
+                border: none;
+                left: 0;
+                /* top: 0; */
+                right: 0;
+                bottom: 30px;
+                width: 51%;
+                height: 30px;
+              ">show me</button>
+          </div>
+        </div>    
+      <!-- End Box -->
+    <div class="hero-slider">     
+
+
       <?php for ( $i = 0; have_rows( ($Px.'hero_slider') ); $i++ ) : 
         the_row(); 
         $title = get_sub_field( ($Px.'hero_slider_title') ); 
@@ -13,7 +67,7 @@ get_header(); $Px = 'hp_'; ?>
         $image = get_sub_field( ($Px.'hero_slider_image') );
 
         if ( $image ) :
-          $image = wp_get_attachment_image_src( $image, 'large' );
+          $image = wp_get_attachment_image_src( $image, 'original' );
           $style = 'style="background-image: url(
             ' . $image[0] . ')"';
         else :
