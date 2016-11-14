@@ -34,10 +34,10 @@ get_header(); $Px = 'hp_'; ?>
                   color: white;
                   text-align: center;
                   text-transform: uppercase;
-                  font-size: 26px;
+                  font-size: 16px;
                   padding: 15px 26px;
-              ">text goes here</p>
-              <button style="
+              ">Which BIFM Qualification is best for you?</p>
+              <a href="http://www.xenonacademy.co.uk/leveller" style="
                 font-size: 0.875rem;
                 line-height: 1.25em;
                 background-color: #1c91df;
@@ -48,12 +48,13 @@ get_header(); $Px = 'hp_'; ?>
                 margin: auto;
                 border: none;
                 left: 0;
-                /* top: 0; */
                 right: 0;
                 bottom: 30px;
-                width: 51%;
+                width: 60%;
                 height: 30px;
-              ">show me</button>
+                text-align: center;
+                text-decoration: none;
+              ">Find Out Here</a>
           </div>
         </div>    
       <!-- End Box -->

@@ -406,6 +406,7 @@
     .multi-box__single__image {
       background-size: cover;
       background-position: center center;
+      height: 100%;
     }  
     .multi-box__single__image--fixed {
       position: absolute;
@@ -427,6 +428,7 @@
       text-decoration: none;
       padding: 2.5em .5em 1em;
       display: inline-block;
+      height: 100%;
     } 
     @media screen and (min-width: $bp-md) {
         .multi-box__single__content {
